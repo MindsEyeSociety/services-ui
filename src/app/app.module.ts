@@ -7,11 +7,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { TitleService } from './title.service';
 import { AppComponent } from './app.component';
 import { Error404Component } from './pages/error404.component'
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Error404Component
+    Error404Component,
+    NavComponent
   ],
   imports: [
     BrowserModule,

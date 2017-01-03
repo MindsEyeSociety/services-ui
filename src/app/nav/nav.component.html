@@ -1,0 +1,30 @@
+<div class="pos-f-t bg-inverse text-white nav-canvas" *ngIf="showNav"[@navShow]="showNav">
+	<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+	<h3 class="text-xs-center">User Name</h3>
+	<h4 class="text-xs-center">US2012030038</h4>
+</div>
+<div class="pos-f-t bg-inverse" style="bottom: 0" *ngIf="showNav" [@coverFade]="showNav"></div>
+
+<nav class="navbar navbar-fixed-top navbar-dark bg-inverse text-md-left text-xs-center">
+	<div class="container">
+
+		<button class="navbar-toggler float-xs-left" type="button" aria-label="Toggle navigation" (click)="onNavClick()"></button>
+
+		<a class="navbar-brand ml-1 float-xs-none float-md-left" routerLink="/">
+			MES Services
+		</a>
+
+		<ul class="nav navbar-nav hidden-sm-down">
+			<li class="nav-item" routerLinkActive="active">
+				<a class="nav-link" routerLink="/user">User</a>
+			</li>
+		</ul>
+
+		<div class="navbar-text float-xs-right" *ngIf="user">
+			 User info
+		</div>
+
+	</div>
+</nav>
