@@ -2,10 +2,13 @@
 	<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
 		<span aria-hidden="true">&times;</span>
 	</button>
-	<h3 class="text-xs-center">User Name</h3>
+	<a routerLink="/">
+		<img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
+	</a>
+	<h3 class="text-xs-center col-xs-12">User Name</h3>
 	<h4 class="text-xs-center">US2012030038</h4>
 </div>
-<div class="pos-f-t bg-inverse" style="bottom: 0" *ngIf="showNav" [@coverFade]="showNav"></div>
+<div class="pos-f-t nav-canvas-cover" style="bottom: 0" *ngIf="showNav" [@coverFade]="showNav" (click)="onNavClick()"></div>
 
 <nav class="navbar navbar-fixed-top navbar-dark bg-inverse text-md-left text-xs-center">
 	<div class="container">
