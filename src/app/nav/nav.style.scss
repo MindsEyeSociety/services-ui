@@ -1,0 +1,24 @@
+@import '../../../node_modules/bootstrap/scss/_variables';
+@import '../../../node_modules/bootstrap/scss/mixins/_breakpoints';
+
+.nav-canvas {
+  right: auto;
+  bottom: 0;
+  z-index: $zindex-navbar-fixed + 2;
+  width: 80%;
+  max-width: 300px;
+  padding: $spacer-y $spacer-x;
+  box-shadow: 0 0 5px rgba( 0, 0, 0, 0.8 )
+}
+
+.nav-canvas-cover {
+  z-index: $zindex-navbar-fixed + 1;
+  background-color: #000;
+}
+
+@include media-breakpoint-down( md ) {
+  .navbar > .container {
+    width: 100%;
+    padding: 0;
+  }
+}
