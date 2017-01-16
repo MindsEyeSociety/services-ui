@@ -11,5 +11,4 @@ export class ConfigService {
     return environment.config;
   }
 
-
 }
