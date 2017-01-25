@@ -14,11 +14,10 @@ export class AuthService {
   /**
    * The current user token for the logged in user.
    *
-   * @private
    * @type {string}
    * @memberOf AuthService
    */
-  private userToken: string;
+  public userToken: string;
 
   /**
    * Creates an instance of AuthService.
@@ -41,7 +40,7 @@ export class AuthService {
    */
   login(user: String, pass: String): boolean {
     console.log(`Faking a call to ${this.configService.getConfig()['apiHost']}/v1/auth/signin/ with username ${user} and password ${pass}.`);
-    if (user == 'admin' && pass == 'test123') {
+    if (user == 'admin' && pass == 'pass123') {
         this.userToken = 'COMPLETELY_FAKE_TOKEN';
         return true;
     }
