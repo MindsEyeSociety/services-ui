@@ -10,8 +10,6 @@ import { ActivatedRoute, Params} from '@angular/router';
 })
 export class UserComponent implements OnInit {
 
-  public userToken: string;
-
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
@@ -26,8 +24,6 @@ export class UserComponent implements OnInit {
     // This step will need to be added to the ngOnInit for 
     // any component that requires Login.
     this.authService.checkLogin();
-
-    this.userToken = this.authService.userToken;
 
   }
 
