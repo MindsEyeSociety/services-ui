@@ -1,83 +1,32 @@
 import { Injectable } from '@angular/core';
 
-import { ConfigService } from './config.service';
-
-/**
- * Service designed to handle Authentication.
- *
- * @export
- * @class AuthService
- */
 @Injectable()
 export class AuthService {
 
-  /**
-   * The current user token for the logged in user.
-   *
-   * @type {string}
-   * @memberOf AuthService
-   */
   public userToken: string;
 
-  /**
-   * Creates an instance of AuthService.
-   *
-   * @param {ConfigService} configService
-   *
-   * @memberOf AuthService
-   */
-  constructor(private configService: ConfigService) { }
+  constructor() {
+    // Attempt to pull from storage upon instantiation.
+    this.userToken = localStorage.getItem('user-token');
+  }
 
+  public setToken(token: string): void {
+    this.userToken = token;
+    localStorage.setItem('user-token', token);
+  }
 
-  /**
-   * Logs in the user, setting the userToken.
-   *
-   * @param {String} user
-   * @param {String} pass
-   * @returns {boolean} True if the login was successful, otherwise false.
-   *
-   * @memberOf AuthService
-   */
-  login(user: String, pass: String): boolean {
-    console.log(`Faking a call to ${this.configService.getConfig()['apiHost']}/v1/auth/signin/ with username ${user} and password ${pass}.`);
-    if (user == 'admin' && pass == 'pass123') {
-        this.userToken = 'COMPLETELY_FAKE_TOKEN';
-        return true;
+  // Redirects to login if user is not logged in.
+  public checkLogin(): void {
+    if (this.userToken === null) {
+      window.location.href = 'http://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev';
     }
-    return false;
   }
 
-  /**
-   * Verifies if the current token is still valid.
-   *
-   * @returns {boolean} True if the current token is still valid. Otherwise, false.
-   *
-   * @memberOf AuthService
-   */
-  verifyToken(): boolean {
-    console.log(`Faking a call to ${this.configService.getConfig()['apiHost']}/v1/auth/verify/ with token ${this.userToken}.`);
-    return this.userToken == 'COMPLETELY_FAKE_TOKEN';
-  }
-
-  /**
-   * Logs the user out, nullifying their current token.
-   *
-   * @memberOf AuthService
-   */
-  logout(): void {
-    console.log(`Faking a call to ${this.configService.getConfig()['apiHost']}/v1/auth/signout to close token session.`);
+  // Destroys local token, removes from storage, and redirects to porta logout.
+  public logout(): void {
     this.userToken = null;
-  }
-
-  /**
-   * Returns a value indicating whether or not the current user is logged in.
-   *
-   * @returns {boolean} True if the current user has a token set, otherwise false.
-   *
-   * @memberOf AuthService
-   */
-  isLoggedIn(): boolean {
-    return this.userToken != null;
+    localStorage.removeItem('user-token');
+    window.location.href = 'https://portal.mindseyesociety.org/logout';
   }
 
 }

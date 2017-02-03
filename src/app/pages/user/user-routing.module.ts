@@ -1,6 +1,5 @@
 import { NgModule }      from '@angular/core';
 import { RouterModule }  from '@angular/router';
-
 import { UserComponent } from './user.component';
 
 @NgModule({
@@ -9,12 +8,10 @@ import { UserComponent } from './user.component';
       {
         path: '',
         component: UserComponent,
-        children: []
+        children: [],
       }
     ])
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 export class UserRoutingModule {}

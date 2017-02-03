@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service'
+import { AuthService } from 'app/services/auth.service';
+import { ActivatedRoute, Params} from '@angular/router';
 
-/**
- * Component designed to display a User.
- *
- * @export
- * @class UserComponent
- * @implements {OnInit}
- */
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -16,40 +10,25 @@ import { AuthService } from '../../services/auth.service'
 })
 export class UserComponent implements OnInit {
 
-  /**
-   * The currently logged in User.
-   *
-   * @type {Object}
-   * @memberOf UserComponent
-   */
-  currentUser : Object;
-  /**
-   * Whether or not this user is logged in.
-   *
-   * @type {Boolean}
-   * @memberOf UserComponent
-   */
-  isLoggedIn : Boolean;
+  public userToken: string;
 
-  /**
-   * Creates an instance of UserComponent.
-   *
-   * @param {AuthService} authService
-   *
-   * @memberOf UserComponent
-   */
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) {}
 
-  /**
-   * On Init method, which is run during component initialization.
-   * Logs in a user, and sets local vars based on login info.
-   *
-   * @memberOf UserComponent
-   */
   ngOnInit() {
-      this.authService.login('admin', 'pass123');
-      this.currentUser = this.authService.userToken;
-      this.isLoggedIn = this.authService.verifyToken();
+    // Check query parameters for a passed Token.
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+        console.log(`Setting Token to ${params['token']}`);
+        if (params['token']) {
+          this.authService.setToken(params['token']);
+        }
+      });
+    // Check for login, redirect if not logged in. 
+    // This step will need to be added to the ngOnInit for 
+    // any component that requires Login.
+    this.authService.checkLogin();
+
+    this.userToken = this.authService.userToken;
+
   }
 
 }
