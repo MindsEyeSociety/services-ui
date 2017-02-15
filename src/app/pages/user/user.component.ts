@@ -26,7 +26,7 @@ export class UserComponent implements OnInit {
    * @memberOf UserComponent
 
    */
-  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute) {}
+  constructor(public authService: AuthService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     // Check query parameters for a passed Token.

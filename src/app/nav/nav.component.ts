@@ -37,7 +37,7 @@ import {
 })
 export class NavComponent implements OnInit {
 
-  private user: Boolean;
+  public user: Boolean;
   public showNav: Boolean = false;
 
   constructor() { }
