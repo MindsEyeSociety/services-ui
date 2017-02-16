@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 
 @Injectable()
 export class TitleService {
+
   private title: String = 'Home';
 
   public constructor( private titleService: Title ) {}

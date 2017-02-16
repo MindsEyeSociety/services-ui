@@ -1,7 +1,7 @@
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
-import { Error404Component } from './pages/error404.component'
+import { Error404Component } from './pages/error404.component';
 
 const appRoutes = [
   { path: '', redirectTo: 'user', pathMatch: 'full'},
