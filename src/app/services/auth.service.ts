@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -18,7 +19,7 @@ export class AuthService {
   // Redirects to login if user is not logged in.
   public checkLogin(): void {
     if (this.userToken === null) {
-      window.location.href = 'http://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev';
+      window.location.href = environment.externalUrls.authLogin;
     }
   }
 
@@ -26,7 +27,7 @@ export class AuthService {
   public logout(): void {
     this.userToken = null;
     localStorage.removeItem('user-token');
-    window.location.href = 'https://portal.mindseyesociety.org/logout';
+    window.location.href = environment.externalUrls.authLogout;
   }
 
 }
