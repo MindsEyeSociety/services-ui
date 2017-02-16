@@ -6,9 +6,10 @@
 export const environment = {
   production: false,
 
-  // load configuration specific to environment here.
-  config: {
-    apiHost: 'localhost:4200'
+  externalUrls: {
+    authLogin: 'https://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev',
+    authLogout: 'https://portal.mindseyesociety.org/logout',
+    apiBase: 'https://api-stage.mindseyesociety.org'
   }
 
 };
