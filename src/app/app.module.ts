@@ -6,6 +6,7 @@ import {CoreModule} from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { TitleService } from './services/title.service';
+import { AuthService } from './services/auth.service';
 import { AppComponent } from './app.component';
 import { Error404Component } from './pages/error404.component';
 import { NavComponent } from './nav/nav.component';
@@ -23,7 +24,7 @@ import { NavComponent } from './nav/nav.component';
     AppRoutingModule,
     CoreModule
   ],
-  providers: [ TitleService ],
+  providers: [ TitleService, AuthService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

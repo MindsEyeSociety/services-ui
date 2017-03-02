@@ -13,7 +13,7 @@ import { ActivatedRoute, Params} from '@angular/router';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styles: [],
-  providers: [AuthService]
+  providers: []
 })
 export class UserComponent implements OnInit {
 
