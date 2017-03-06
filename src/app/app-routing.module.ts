@@ -4,7 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { Error404Component } from './pages/error404/error404.component';
 
 const appRoutes: Routes = [
-  { path: '**', component: Error404Component }
+  { path: '', loadChildren: 'app/pages/home/home.module#HomeModule' },
+  { path: 'login', loadChildren: 'app/pages/login/login.module#LoginModule' },
+  { path: 'user', loadChildren: 'app/pages/user/user.module#UserModule' },
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({

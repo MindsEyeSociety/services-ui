@@ -25,8 +25,6 @@ import { LoginModule } from './pages/login/login.module';
     HttpModule,
     CoreModule,
     HomeModule,
-    LoginModule,
-    UserModule,
     AppRoutingModule
   ],
   providers: [ ],
