@@ -7,6 +7,7 @@ const appRoutes = [
   { path: '', redirectTo: 'user', pathMatch: 'full'},
   { path: 'user', loadChildren: 'app/pages/user/user.module#UserModule'},
   { path: 'ballot', loadChildren: 'app/pages/ballot/ballot.module#BallotModule'},
+  { path: 'vote', loadChildren: 'app/pages/vote/vote.module#VoteModule'},
   { path: '**', component: Error404Component }
 ];
 

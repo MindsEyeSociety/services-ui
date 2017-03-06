@@ -37,7 +37,15 @@ export class VoterOrgUnitComponent implements OnInit,OnChanges {
 		else{
 			console.log('have orgUnit', this.orgUnitId);
 			this.ballotService.getOrgUnit(this.orgUnitId).subscribe(response => {
-				if(response.children) {this.orgUnit = response.unit; this.orgUnits = response.children;}
+				if(response.children) {
+					this.orgUnit = response.unit;
+					this.orgUnits = [];
+					//this.orgUnits = response.children;
+					for(var i = 0; i < response.children.length; i++){
+						var child = response.children[i];
+						if(child.type!='Venue') this.orgUnits.push(child);
+					}
+				}
 				else {this.orgUnits = [];}
 			});
 

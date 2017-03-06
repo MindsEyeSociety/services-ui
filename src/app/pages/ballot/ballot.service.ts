@@ -143,12 +143,12 @@ export class BallotService {
 	public getNations(){
 		let headers = this.baseHeaders();
 		let options = new RequestOptions({ headers: headers });
-		return this.http.get(this.apiUrl+'orgUnit?type=nation',options).map(response => response.json()).first().catch(this.handleError);
+		return this.http.get(this.apiUrl+'orgUnit?type=nation&users=0&offices=0&children=1&parents=0',options).map(response => response.json()).first().catch(this.handleError);
 	}
 	public getOrgUnit(id:number){
 		let headers = this.baseHeaders();
 		let options = new RequestOptions({ headers: headers });
-		return this.http.get(this.apiUrl+'orgUnit/'+id,options).map(response => response.json()).first().catch(this.handleError);
+		return this.http.get(this.apiUrl+'orgUnit/'+id+'?users=0&offices=0&children=1&parents=0',options).map(response => response.json()).first().catch(this.handleError);
 	}
 	
 	

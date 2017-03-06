@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="sidebar col-sm-2 col-md-2">
+
+        <div>
+            <h4>Available Votes:</h4>
+            <ul class="nav nav-sidebar" *ngIf="votes">
+                <li *ngFor="let vote of votes"><a [routerLink]="vote.id">{{vote.name}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-10 col-md-10 main">
+        <router-outlet></router-outlet>
+    </div>
+</div>
