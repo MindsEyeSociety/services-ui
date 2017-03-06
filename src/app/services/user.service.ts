@@ -28,7 +28,7 @@ export class UserService {
       userId = "me";
     }
 
-    let endpointUrl = `${environment.externalUrls.userApi}/${userId}`;
+    const endpointUrl = `${environment.externalUrls.userApi}/${userId}`;
 
     let user = this.http.get(endpointUrl, {headers: this.getHeaders()} )
                         .map((res:Response) => res.json())
@@ -38,7 +38,7 @@ export class UserService {
   }
 
 
-  private getHeaders(){
+  private getHeaders() {
     let headers = new Headers();
     headers.append('Accept', 'application/json');
     headers.append('Authorization', `Bearer ${this.authService.userToken}`)
