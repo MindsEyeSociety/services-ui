@@ -7,9 +7,8 @@ export const environment = {
   production: false,
 
   externalUrls: {
-    authLogin: 'https://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev',
-    authLogout: 'https://portal.mindseyesociety.org/logout',
-    apiBase: 'https://api-stage.mindseyesociety.org'
+    authLogin: 'http://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev',
+    authLogout: 'http://portal.mindseyesociety.org/logout'
   }
 
 };
