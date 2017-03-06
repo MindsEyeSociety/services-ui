@@ -13,7 +13,6 @@ import {
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: [ './nav.style.scss' ],
-  providers: [UserService],
   animations: [
     trigger( 'navShow', [
       state( 'true', style({ transform: 'translateX(0)' }) ),
