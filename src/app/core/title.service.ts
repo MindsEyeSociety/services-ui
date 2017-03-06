@@ -16,4 +16,5 @@ export class TitleService {
     this.title = newTitle || 'Home';
     this.titleService.setTitle( this.title + ' – Mind\'s Eye Society' );
   }
+
 }

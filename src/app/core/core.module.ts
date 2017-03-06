@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './auth.service';
 import { TitleService } from './title.service';
+import { UserService } from './user.service';
 
 @NgModule({
   imports: [
@@ -10,7 +11,8 @@ import { TitleService } from './title.service';
   declarations: [],
   providers: [
     AuthService,
-    TitleService
+    TitleService,
+    UserService
   ]
 })
 /* For top level service providers */
