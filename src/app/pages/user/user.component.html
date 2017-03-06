@@ -1,7 +1,10 @@
-<p>
-	User Works!
-	Token: {{this?.authService?.userToken}}
-</p>
-
-<!-- This will work as long as the authService is injected into this component. -->
-<button (click)="authService.logout()" type="button" class="btn btn-secondary">Logout</button>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<p>
+				User Works!
+				Token: {{this?.authService?.userToken}}
+			</p>
+		</div>
+	</div>
+</div>
