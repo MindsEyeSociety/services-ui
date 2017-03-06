@@ -3,20 +3,15 @@ import { AuthService } from 'app/core/auth.service';
 import { TitleService } from 'app/core/title.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
+  selector: 'app-home',
+  templateUrl: './home.component.html',
   styleUrls: []
 })
-export class UserComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
-  constructor(
-    private titleService: TitleService,
-    private authService: AuthService
-  )
-  { }
+  constructor( private titleService: TitleService ) {}
 
   ngOnInit() {
-    this.authService.checkLogin();
     this.titleService.setTitle( 'MES Services UI' );
   }
 

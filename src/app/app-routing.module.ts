@@ -1,20 +1,15 @@
-import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import { Error404Component } from './pages/error404.component';
+import { Error404Component } from './pages/error404/error404.component';
 
-const appRoutes = [
-  { path: '', redirectTo: 'user', pathMatch: 'full'},
-  { path: 'user', loadChildren: 'app/pages/user/user.module#UserModule'},
+const appRoutes: Routes = [
   { path: '**', component: Error404Component }
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot( appRoutes )
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot( appRoutes )],
+  exports: [RouterModule],
+  providers: []
 })
 export class AppRoutingModule {}
