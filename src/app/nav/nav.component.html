@@ -37,9 +37,9 @@
 		</ul>
 
 		<div class="navbar-brand nav-link float-xs-right navbar-dark">
-			<span class="navbar-inverse">/ Member Number /</span>
+			<span class="navbar-inverse">{{this.user?.fullName}} {{this.user?.membershipNumber}}</span>
 			 <!-- This will work as long as the authService is injected into this component. -->
-			<button (click)="authService.logout()" type="button" class="btn btn-secondary">Logout</button>
+			<button (click)="authService.logout()" type="button" class="btn btn-outline-info">Logout</button>
 		</div>
 	</div>
 </nav>
