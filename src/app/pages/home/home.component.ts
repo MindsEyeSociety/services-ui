@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'app/core/auth.service';
 import { TitleService } from 'app/core/title.service';
 
 @Component({
@@ -9,7 +8,7 @@ import { TitleService } from 'app/core/title.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private titleService: TitleService ) {}
+  constructor( private titleService: TitleService) {}
 
   ngOnInit() {
     this.titleService.setTitle( 'MES Services UI' );

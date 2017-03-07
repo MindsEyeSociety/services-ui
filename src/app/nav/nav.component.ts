@@ -1,4 +1,4 @@
-import { UserService } from 'app/services/user.service';
+import { UserService } from 'app/core/user.service';
 import {
   Component,
   OnInit,

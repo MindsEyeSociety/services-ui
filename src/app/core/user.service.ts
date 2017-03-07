@@ -30,7 +30,7 @@ export class UserService {
     if (!userId) { userId = "me"; }
 
     // Create a URL to call from env data.
-    const endpointUrl = `${environment.externalUrls.userApi}/${userId}`;
+    const endpointUrl = `${environment.externalUrls.userApi}/user/${userId}`;
 
     // Observables! Fun for the whole family!
     let user = this.http.get(endpointUrl, {headers: this.getHeaders()} )
