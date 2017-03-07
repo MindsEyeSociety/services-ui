@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle( 'MES Services UI' );
-
   }
 
 }
