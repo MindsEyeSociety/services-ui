@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TitleService } from '../../services/title.service';
+import { TitleService } from 'app/core/title.service';
 import { VoteRoutingModule }       from './vote-routing.module';
 import { VoteListComponent } from './vote-list.component';
 import { VoteItemComponent } from './vote-item.component';
