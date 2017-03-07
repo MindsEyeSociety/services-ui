@@ -7,9 +7,9 @@ export const environment = {
   production: false,
 
   externalUrls: {
-    authLogin: 'https://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev',
-    authLogout: 'https://portal.mindseyesociety.org/logout',
-    apiBase: 'https://api-stage.mindseyesociety.org',
+    authLogout: 'http://portal.mindseyesociety.org/logout',
+    authLogin: 'http://api-stage.mindseyesociety.org/users/v1/auth/signin/ux-dev',
+    userApi: 'https://ukqfspj0vc.execute-api.us-east-1.amazonaws.com/stage/users/v1',
     apiBallot: 'https://ukqfspj0vc.execute-api.us-east-1.amazonaws.com/stage/ballots/'
   }
 

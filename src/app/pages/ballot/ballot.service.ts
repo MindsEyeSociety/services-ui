@@ -8,7 +8,7 @@ import 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from 'app/core/auth.service';
 import { environment } from '../../../environments/environment';
 
 @Injectable()
@@ -27,6 +27,7 @@ export class BallotService {
                 console.log('ballots switchmap called');
                 let headers = this.baseHeaders();
 				let options = new RequestOptions({ headers: headers });
+				console.log(options);
                 return this.http.get(this.apiUrl+'ballots',options).map(response => response.json()).first().catch(this.handleError);
             }
         );

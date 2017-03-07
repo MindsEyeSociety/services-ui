@@ -1,11 +1,11 @@
+import { LoginComponent } from './login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserComponent } from './user.component';
 
-const routes: Routes =  [
-  {
+const routes: Routes = [
+    {
     path: '',
-    component: UserComponent,
+    component: LoginComponent,
     children: []
   }
 ];
@@ -15,4 +15,4 @@ const routes: Routes =  [
   exports: [RouterModule],
   providers: []
 })
-export class UserRoutingModule {}
+export class LoginRoutingModule { }

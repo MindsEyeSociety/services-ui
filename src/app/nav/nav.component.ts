@@ -1,3 +1,4 @@
+import { UserService } from 'app/core/user.service';
 import {
   Component,
   OnInit,
@@ -37,12 +38,16 @@ import {
 })
 export class NavComponent implements OnInit {
 
-  public user: Boolean;
+  public user: Object;
   public showNav: Boolean = false;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.userService.getUser().subscribe(
+      user => this.user = user,
+      err => console.log(err)
+    );
   }
 
   onNavClick() {

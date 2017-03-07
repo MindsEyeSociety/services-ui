@@ -2,29 +2,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {CoreModule} from './core/core.module';
+import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
-import { TitleService } from './services/title.service';
-import { AuthService } from './services/auth.service';
 import { AppComponent } from './app.component';
-import { Error404Component } from './pages/error404.component';
 import { NavComponent } from './nav/nav.component';
+import { Error404Component } from './pages/error404/error404.component';
+import { UserModule } from './pages/user/user.module';
+import { HomeModule } from './pages/home/home.module';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     Error404Component,
-    NavComponent
+    NavComponent,
+    Error404Component
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule,
-    CoreModule
+    CoreModule,
+    HomeModule,
+    AppRoutingModule
   ],
-  providers: [ TitleService, AuthService ],
+  providers: [ ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

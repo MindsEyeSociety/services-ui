@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DatepickerModule, TimepickerModule } from 'ng2-bootstrap';
-import { TitleService } from '../../services/title.service';
+import { TitleService } from 'app/core/title.service';
 import { BallotRoutingModule }       from './ballot-routing.module';
 import { BallotListComponent } from './ballot-list.component';
 import { BallotItemComponent } from './ballot-item.component';
