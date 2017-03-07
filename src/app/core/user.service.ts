@@ -31,8 +31,7 @@ export class UserService {
 
     // Create a URL to call from env data.
     const endpointUrl = `${environment.externalUrls.userApi}/user/${userId}`;
-    console.log('this was called');
-    console.log(this.getHeaders());
+
     // Observables! Fun for the whole family!
     let user = this.http.get(endpointUrl, {headers: this.getHeaders()} )
                         .map((res:Response) => res.json())
