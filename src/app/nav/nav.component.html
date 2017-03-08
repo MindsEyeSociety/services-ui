@@ -18,8 +18,6 @@
 				<a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
 			</li>
 		</ul>
-		<!-- This will work as long as the authService is injected into this component. -->
-		<button (click)="authService.logout()" type="button" class="btn btn-outline-info">Logout</button>
 	</div>
 </div>
 
@@ -27,18 +25,17 @@
 
 <nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
 	<div class="container">
-		<div class="nav navbar-nav">
+		<div class="navbar pull-xs-left">
 			<button class="navbar-toggler" type="button" aria-label="Toggle navigation" (click)="onNavClick()"></button>
 	
 			<a class="navbar-brand" routerLink="/">
 				MES Services
 			</a>
-
 		</div>
-		<div class="nav navbar-right">
+		<div class="nav navbar-nav pull-xs-right">
 			<span class="navbar-text navbar-inverse text-white"><small>{{this.user?.fullName}} {{this.user?.membershipNumber}}</small></span>
-			<!-- This will work as long as the authService is injected into this component. -->
-			<button (click)="authService.logout()" type="button" class="btn btn-sm btn-outline-secondary navbar-btn">Logout</button>
+			 <!-- This will work as long as the authService is injected into this component. -->
+			<button (click)="authService.logout()" type="button" class="btn btn-outline-secondary btn-sm">Logout</button>
 		</div>
 	</div>
 </nav>
