@@ -23,10 +23,10 @@
 
 <div class="pos-f-t nav-canvas-cover" style="bottom: 0" *ngIf="showNav" [@coverFade]="showNav" (click)="onNavClick()"></div>
 
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse">
+<nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-dark bg-inverse" role="navigation">
 	<div class="container">
-		<div class="navbar pull-xs-left">
-			<button class="navbar-toggler" type="button" aria-label="Toggle navigation" (click)="onNavClick()"></button>
+		<div class="pull-xs-left">
+			<button class="navbar-toggler navbar-toggler-left" data-toggle="collapse" type="button" aria-label="Toggle navigation" (click)="onNavClick()"></button>
 	
 			<a class="navbar-brand" routerLink="/">
 				MES Services
