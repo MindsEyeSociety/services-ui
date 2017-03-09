@@ -8,7 +8,7 @@ import { Observable, AsyncSubject } from 'rxjs/Rx';
 export class AuthService {
 
   public userToken: string;
-  public userTokenSubject: AsyncSubject<any> = new AsyncSubject();
+  public userTokenSubject: AsyncSubject<string> = new AsyncSubject();
   constructor(private _location: Location) {
     // Attempt to pull from storage upon instantiation.
     var params = this.decodeQueryString(this._location.path());
@@ -23,7 +23,7 @@ export class AuthService {
       this.userTokenSubject.complete();
     }
     else{
-      this.userTokenSubject.next(false);
+      this.userTokenSubject.next('');
       this.userTokenSubject.complete();
     }
   }
@@ -46,11 +46,15 @@ export class AuthService {
     window.location.href = environment.externalUrls.authLogin;
 
   }
+  
+  public clearToken():void{
+    this.userToken = null;
+    localStorage.removeItem('user-token');
+  }
 
   // Destroys local token, removes from storage, and redirects to porta logout.
   public logout(): void {
-    this.userToken = null;
-    localStorage.removeItem('user-token');
+    this.clearToken();
     window.location.href = environment.externalUrls.authLogout;
   }
   decodeQueryString(path:string){
