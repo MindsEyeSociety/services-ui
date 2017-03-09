@@ -44,7 +44,7 @@ export class NavComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(
+    this.userService.currentUser.subscribe(
       user => this.user = user,
       err => console.log(err)
     );
