@@ -19,18 +19,23 @@ export class UserService implements CanActivate {
 
   constructor(private http: Http, private authService: AuthService) {
     var userTokenSub = this.authService.userTokenSubject.subscribe(
-      (userToken:any)=>{
-        if(!userToken){
+      (userToken:string)=>{
+        console.log('user token subscription called',userToken);
+        if(!userToken || userToken.length == 0){
+          console.log('No user');
           this.currentUser.next(false);
           this.currentUser.complete();
         }
         else{
+          console.log('calling for me user');
           this.getUser('me').subscribe(
             (user:Object)=>{
               this.currentUser.next(user);
               this.currentUser.complete();
             },
             error =>  {
+              console.log("Error getting user, clear token");
+              this.authService.clearToken();
               this.currentUser.next(false);
               this.currentUser.complete();
             }
