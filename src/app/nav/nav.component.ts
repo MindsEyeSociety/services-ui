@@ -1,4 +1,6 @@
 import { UserService } from 'app/core/user.service';
+import { AuthService } from 'app/core/auth.service';
+
 import {
   Component,
   OnInit,
@@ -41,10 +43,10 @@ export class NavComponent implements OnInit {
   public user: Object;
   public showNav: Boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
-    this.userService.getUser().subscribe(
+    this.userService.currentUser.subscribe(
       user => this.user = user,
       err => console.log(err)
     );

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { Headers, Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/Rx';
+import { Observable, AsyncSubject } from 'rxjs/Rx';
+import { CanActivate } from '@angular/router';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -12,11 +13,45 @@ import { AuthService } from 'app/core/auth.service';
 
 
 @Injectable()
-export class UserService {
+export class UserService implements CanActivate {
 
-  public currentUser: Object;
+  public currentUser: AsyncSubject<Object> = new AsyncSubject();
 
   constructor(private http: Http, private authService: AuthService) {
+    var userTokenSub = this.authService.userTokenSubject.subscribe(
+      (userToken:any)=>{
+        if(!userToken){
+          this.currentUser.next(false);
+          this.currentUser.complete();
+        }
+        else{
+          this.getUser('me').subscribe(
+            (user:Object)=>{
+              this.currentUser.next(user);
+              this.currentUser.complete();
+            },
+            error =>  {
+              this.currentUser.next(false);
+              this.currentUser.complete();
+            }
+          )
+        }
+      }  
+    );
+    
+  }
+  
+  canActivate() {
+    return this.currentUser.asObservable().map(
+      (user:any)=>
+      {
+        if(user) return true;
+        else {
+          this.authService.login();
+          return false;
+        }
+      }
+    );
   }
 
   /**
@@ -36,10 +71,6 @@ export class UserService {
     let user = this.http.get(endpointUrl, {headers: this.getHeaders()} )
                         .map((res:Response) => res.json())
                         .catch((error:any) => Observable.throw(error.json().error || 'Unknown server error'));
-
-    if (userId == 'me') {
-      this.currentUser = user;
-    }
 
     return user;
   }
