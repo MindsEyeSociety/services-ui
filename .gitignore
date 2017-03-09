@@ -35,6 +35,8 @@ testem.log
 /e2e/*.js
 /e2e/*.map
 
+#local environment
+src/environments/environment.local.ts
 #System Files
 .DS_Store
 Thumbs.db

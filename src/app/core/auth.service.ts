@@ -38,8 +38,13 @@ export class AuthService {
   // Redirects to login if user is not logged in.
   public checkLogin(): void {
     if (this.userToken === null) {
-      window.location.href = environment.externalUrls.authLogin;
+      this.login();
     }
+  }
+  
+  public login(): void {
+    window.location.href = environment.externalUrls.authLogin;
+
   }
 
   // Destroys local token, removes from storage, and redirects to porta logout.

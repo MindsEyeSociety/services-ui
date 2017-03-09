@@ -47,7 +47,7 @@ export class UserService implements CanActivate {
       {
         if(user) return true;
         else {
-          window.location.href = environment.externalUrls.authLogin;
+          this.authService.login();
           return false;
         }
       }

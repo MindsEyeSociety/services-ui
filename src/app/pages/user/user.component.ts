@@ -16,7 +16,6 @@ export class UserComponent implements OnInit {
   { }
 
   ngOnInit() {
-    this.authService.checkLogin();
     this.titleService.setTitle( 'MES Services UI' );
   }
 
