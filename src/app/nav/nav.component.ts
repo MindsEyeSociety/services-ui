@@ -11,10 +11,10 @@ import {
   animate
 } from '@angular/core';
 
-@Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: [ './nav.style.scss' ],
+ @Component({
+   selector: 'app-nav',
+   templateUrl: './nav.component.html',
+   styleUrls: [ './nav.style.scss' ],
   animations: [
     trigger( 'navShow', [
       state( 'true', style({ transform: 'translateX(0)' }) ),
@@ -37,7 +37,7 @@ import {
       ])
     ])
   ]
-})
+ })
 export class NavComponent implements OnInit {
 
   public user: Object;
