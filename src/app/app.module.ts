@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DatepickerModule, TimepickerModule } from 'ng2-bootstrap';
+import { SidebarModule } from 'ng-sidebar';
 import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -28,7 +29,8 @@ import { LoginModule } from './pages/login/login.module';
     HomeModule,
     AppRoutingModule,
     DatepickerModule.forRoot(),
-    TimepickerModule.forRoot()
+    TimepickerModule.forRoot(),
+    SidebarModule
   ],
   providers: [ ],
   bootstrap: [ AppComponent ]

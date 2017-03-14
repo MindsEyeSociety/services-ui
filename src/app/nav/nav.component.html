@@ -1,4 +1,6 @@
-<div class="pos-f-t bg-inverse text-white nav-canvas" *ngIf="showNav" [@navShow]="showNav">
+<ng-sidebar-container>
+<ng-sidebar [(opened)]="showNav">
+<div *ngIf="showNav" class="bg-inverse text-white navside">
 	<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
 		<span aria-hidden="true">&times;</span>
 	</button>
@@ -20,16 +22,15 @@
 		</ul>
 	</div>
 </div>
-
-<div class="pos-f-t nav-canvas-cover" style="bottom: 0" *ngIf="showNav" [@coverFade]="showNav" (click)="onNavClick()"></div>
-
-<nav class="navbar navbar-fixed-top navbar-toggleable-md navbar-dark bg-inverse" role="navigation">
+</ng-sidebar>
+<nav class="navbar navbar-fixed-top navbar-toggleable-sm navbar-dark bg-inverse" role="navigation">
 	<div class="container">
 	    <div class="mr-auto">
-		<a class="navbar-brand" routerLink="/">
+		<a class="navbar-brand text-white" routerLink="/">
 				MES Services
 			</a>
-			<button class="navbar-toggler" data-toggle="collapse" type="button" aria-label="Toggle navigation" (click)="onNavClick()"></button>
+			<button type="button" class="navbar-toggle collapsed" (click)="onNavClick()"><span>Toggle navigation</span>
+			</button>
 		</div>
 		<div class="nav navbar-nav">
 			<span class="navbar-text text-white"><small>{{this.user?.fullName}} {{this.user?.membershipNumber}}</small></span>
@@ -38,3 +39,4 @@
 		</div>
 	</div>
 </nav>
+</ng-sidebar-container>

@@ -47,3 +47,13 @@
 // // Utility classes
 // @import "~bootstrap/scss/utilities";
 
+.ng-sidebar--opened {
+    height: 100vh;
+}
+.ng-sidebar{
+    background-color: #000000 !important;
+}
+
+.navside {
+    height: 100vh;
+}
