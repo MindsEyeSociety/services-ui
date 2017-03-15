@@ -54,3 +54,18 @@
     background-color: #000000 !important;
 }
 
+.icon-container {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.navbar--secondbar {
+    background-color: #fff;
+    top: 54px;
+    border-bottom: 1px solid #ccc;
+    
+    .nav-link {
+        padding: 0em 1em; 
+    }
+}
