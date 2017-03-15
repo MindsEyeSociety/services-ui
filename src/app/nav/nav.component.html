@@ -1,71 +1,71 @@
 <ng-sidebar-container>
 <ng-sidebar [(opened)]="showNav">
-	<div *ngIf="showNav" class="container text-white ng-sidebar__content">
-		<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
-			<span aria-hidden="true">&times;</span>
-		</button>
-		<div class="row">
-			<a routerLink="/">
-				<img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
-			</a>
-		</div>
-		<div class="row">
-			<h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
-		</div>
-		<div class="row">
-			<h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
-		</div>
-		<div class="row">
-			<ul class="nav nav-pills nav-stacked">
-				<li class="nav-item" routerLinkActive="active">
-					<a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
-				</li>
-				<li class="nav-item" routerLinkActive="active">
-					<a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
-				</li>
-			</ul>
-		</div>
-	</div>
+    <div *ngIf="showNav" class="container text-white ng-sidebar__content">
+        <button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="row">
+            <a routerLink="/">
+                <img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
+            </a>
+        </div>
+        <div class="row">
+            <h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
+        </div>
+        <div class="row">
+            <h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
+        </div>
+        <div class="row">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </ng-sidebar>
 <nav class="navbar fixed-top navbar-toggleable-sm navbar-dark bg-inverse" role="navigation">
-	<div class="container">
-	    <div class="mr-auto">
-			<a class="navbar-brand text-white" routerLink="/">
-				MES Services
-			</a>
-			<button type="button" class="navbar-toggle collapsed" (click)="onNavClick()"><span>Toggle navigation</span>
-			</button>
-		</div>
-		<div class="nav navbar-nav">
-			<span class="navbar-text text-white"><small>{{this.user?.fullName}} {{this.user?.membershipNumber}}</small></span>
-			  <!--This will work as long as the authService is injected into this component. -->
-			<button (click)="authService.logout()" type="button" class="btn btn-outline-secondary btn-sm">Logout</button>
-		</div>
-	</div>
+    <div class="container">
+        <div class="mr-auto">
+            <a class="navbar-brand text-white" routerLink="/">
+                MES Services
+            </a>
+            <button type="button" class="navbar-toggle collapsed" (click)="onNavClick()"><span>Toggle navigation</span>
+            </button>
+        </div>
+        <div class="nav navbar-nav">
+            <span class="navbar-text text-white"><small>{{this.user?.fullName}} {{this.user?.membershipNumber}}</small></span>
+              <!--This will work as long as the authService is injected into this component. -->
+            <button (click)="authService.logout()" type="button" class="btn btn-outline-secondary btn-sm">Logout</button>
+        </div>
+    </div>
 </nav>
 <nav class="navbar fixed-top navbar-toggleable-sm navbar--secondbar" role="navigation">
-	<div class="container">
-	    <div class="mr-auto">
-	    	<ul class="navbar-nav mr-auto">
-		    	<li class="nav-item active">
-		        	<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-		      	</li>
-			    <li class="nav-item">
-			      	<a class="nav-link" href="#">Link</a>
-			    </li>
-		        <li class="nav-item">
-		            <a class="nav-link disabled" href="#">Disabled</a>
-		        </li>
-		        <li class="nav-item">
-		            <span class="icon-container">
-        				<a href="#">
-        					<!-- magnifying glass search icon -->
-        					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.6 489.6"><path d="M189.7.038C85.3.038 0 85.338 0 189.738c0 104.4 85.3 189.7 189.7 189.7 41.2 0 79.4-13.3 110.5-35.8l137.2 137c11.9 11.9 31.3 12 43.2 0 12-12 12-31.3 0-43.2l-136.9-137.1c22.5-31.2 35.8-69.4 35.8-110.5 0-104.5-85.3-189.8-189.8-189.8zm0 61.2c71.3 0 128.5 57.2 128.5 128.5s-57.2 128.5-128.5 128.5-128.5-57.2-128.5-128.5c0-71.4 57.2-128.5 128.5-128.5z"/></svg>
-        				</a>
-        			</span>
-		        </li>
-		    </ul>
-		</div>
-	</div>
+    <div class="container">
+        <div class="mr-auto">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                <li class="nav-item">
+                    <span class="icon-container">
+                        <a href="#">
+                            <!-- magnifying glass search icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.6 489.6"><path d="M189.7.038C85.3.038 0 85.338 0 189.738c0 104.4 85.3 189.7 189.7 189.7 41.2 0 79.4-13.3 110.5-35.8l137.2 137c11.9 11.9 31.3 12 43.2 0 12-12 12-31.3 0-43.2l-136.9-137.1c22.5-31.2 35.8-69.4 35.8-110.5 0-104.5-85.3-189.8-189.8-189.8zm0 61.2c71.3 0 128.5 57.2 128.5 128.5s-57.2 128.5-128.5 128.5-128.5-57.2-128.5-128.5c0-71.4 57.2-128.5 128.5-128.5z"/></svg>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 </ng-sidebar-container>
