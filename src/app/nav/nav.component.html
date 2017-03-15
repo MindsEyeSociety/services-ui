@@ -1,27 +1,31 @@
 <ng-sidebar-container>
 <ng-sidebar [(opened)]="showNav">
-<div *ngIf="showNav" class="bg-inverse text-white navside">
-	<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
-		<span aria-hidden="true">&times;</span>
-	</button>
+	<div *ngIf="showNav" class="container text-white ng-sidebar__content">
+		<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
+			<span aria-hidden="true">&times;</span>
+		</button>
 		<div class="row">
-		<a routerLink="/">
-			<img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
-		</a>
-		<h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
-	<h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
+			<a routerLink="/">
+				<img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
+			</a>
+		</div>
+		<div class="row">
+			<h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
+		</div>
+		<div class="row">
+			<h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
+		</div>
+		<div class="row">
+			<ul class="nav nav-pills nav-stacked">
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
+				</li>
+				<li class="nav-item" routerLinkActive="active">
+					<a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
+				</li>
+			</ul>
+		</div>
 	</div>
-	<div class="row">
-		<ul class="nav nav-pills nav-stacked">
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
-			</li>
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
-			</li>
-		</ul>
-	</div>
-</div>
 </ng-sidebar>
 <nav class="navbar navbar-fixed-top navbar-toggleable-sm navbar-dark bg-inverse" role="navigation">
 	<div class="container">
