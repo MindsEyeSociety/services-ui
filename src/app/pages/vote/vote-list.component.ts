@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VoteService } from './vote.service';
+
 
 @Component({
   selector: 'app-vote-list',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VoteListComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+	constructor(private voteService: VoteService) { }
+	votes:any;
+	votesSubscription:any;
+	ngOnInit() {
+		this.votesSubscription = this.voteService.getVotes().subscribe(response => {this.votes = response; console.log(this.votes);});
+	}
 
 }

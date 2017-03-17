@@ -15,23 +15,11 @@ export class LoginComponent implements OnInit {
     public authService: AuthService,
     private activatedRoute: ActivatedRoute
   )
-  { }
+  {
+    
+  }
 
   ngOnInit() {
-
-    // Check query parameters for a passed Token.
-    this.activatedRoute.queryParams.subscribe((params: Params) => {
-
-        console.log(`Setting Token to ${params['token']}`);
-
-        if (params['token']) {
-          this.authService.setToken(params['token']);
-        }
-
-
-
-      });
-
   }
 
 }

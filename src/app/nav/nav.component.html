@@ -1,44 +1,75 @@
-<div class="pos-f-t bg-inverse text-white nav-canvas" *ngIf="showNav" [@navShow]="showNav">
-	<button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
-		<span aria-hidden="true">&times;</span>
-	</button>
-		<div class="row">
-		<a routerLink="/">
-			<img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
-		</a>
-		<h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
-	<h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
-	</div>
-	<div class="row">
-		<ul class="nav nav-pills nav-stacked">
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
-			</li>
-			<li class="nav-item" routerLinkActive="active">
-				<a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
-			</li>
-		</ul>
-	</div>
-</div>
-
-<div class="pos-f-t nav-canvas-cover" style="bottom: 0" *ngIf="showNav" [@coverFade]="showNav" (click)="onNavClick()"></div>
-
-<nav class="navbar navbar-fixed-top navbar-dark bg-inverse text-md-left text-xs-center">
-	<div class="container">
-
-		<button class="navbar-toggler float-xs-left" type="button" aria-label="Toggle navigation" (click)="onNavClick()"></button>
-
-		<a class="navbar-brand ml-1 float-xs-none float-md-left" routerLink="/">
-			MES Services
-		</a>
-
-		<ul class="nav navbar-nav hidden-sm-down">
-			
-		</ul>
-
-		<div class="navbar-brand nav-link float-xs-right navbar-dark">
-			 <!-- This will work as long as the authService is injected into this component. -->
-			<button (click)="authService.logout()" type="button" class="btn btn-secondary">Logout</button>
-		</div>
-	</div>
+<ng-sidebar-container>
+<ng-sidebar position="left" [(opened)]="showNav" showBackdrop="true" closeOnClickOutside="true" keyClose="true">
+    <div  class="navbar__offcanvas text-white">
+        <button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div>
+            <a routerLink="/">
+                <img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
+            </a>
+        </div>
+        <div>
+            <h3 class="text-center">{{this.user?.fullName}}</h3>
+        </div>
+        <div>
+            <h4 class="text-center">{{this.user?.membershipNumber}}</h4>
+        </div>
+        <div>
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="/ballot" (click)="onNavClick()">Ballot Box</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</ng-sidebar>
+<nav class="navbar navbar--main fixed-top navbar-toggleable-sm navbar-dark bg-inverse" role="navigation">
+    <div class="container">
+        <div class="mr-auto">
+            <button class="navbar-toggle collapsed" (click)="onNavClick()">
+                <span class="icon-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="menu-icon" viewBox="0 0 535.5 408"><path d="M510 229.5H25.5C11.4 229.5 0 218.1 0 204s11.4-25.5 25.5-25.5H510c14.1 0 25.5 11.4 25.5 25.5s-11.4 25.5-25.5 25.5zM408 51H25.5C11.4 51 0 39.6 0 25.5S11.4 0 25.5 0H408c14.1 0 25.5 11.4 25.5 25.5S422.1 51 408 51zM25.5 357H408c14.1 0 25.5 11.4 25.5 25.5S422.1 408 408 408H25.5C11.4 408 0 396.6 0 382.5S11.4 357 25.5 357z"/></svg>
+                </span>
+            </button>
+            <a class="navbar-brand text-white" routerLink="/">
+                MES Services
+            </a>
+            
+        </div>
+        <div class="nav navbar-nav">
+            <span class="navbar-text text-white navbar__user-info"><small>{{this.user?.fullName}} {{this.user?.membershipNumber}}</small></span>
+              <!--This will work as long as the authService is injected into this component. -->
+            <button (click)="authService.logout()" type="button" class="btn btn-outline-secondary btn-sm">Logout</button>
+        </div>
+    </div>
 </nav>
+<nav class="navbar fixed-top navbar-toggleable-sm navbar--secondbar" role="navigation">
+    <div class="container">
+        <div class="mr-auto">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+                <li class="nav-item">
+                    <span class="icon-container">
+                        <a href="#">
+                            <!-- magnifying glass search icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.6 489.6"><path d="M189.7.038C85.3.038 0 85.338 0 189.738c0 104.4 85.3 189.7 189.7 189.7 41.2 0 79.4-13.3 110.5-35.8l137.2 137c11.9 11.9 31.3 12 43.2 0 12-12 12-31.3 0-43.2l-136.9-137.1c22.5-31.2 35.8-69.4 35.8-110.5 0-104.5-85.3-189.8-189.8-189.8zm0 61.2c71.3 0 128.5 57.2 128.5 128.5s-57.2 128.5-128.5 128.5-128.5-57.2-128.5-128.5c0-71.4 57.2-128.5 128.5-128.5z"/></svg>
+                        </a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</ng-sidebar-container>

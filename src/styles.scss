@@ -1,2 +1,125 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/bootstrap/scss/bootstrap';
+// Core variables and mixins
+// @import "~bootstrap/scss/custom";
+// @import "~bootstrap/scss/variables";
+// @import "~bootstrap/scss/mixins";
+
+// // Reset and dependencies
+// @import "~bootstrap/scss/normalize";
+// @import "~bootstrap/scss/print";
+
+// // Core CSS
+// @import "~bootstrap/scss/reboot";
+// @import "~bootstrap/scss/type";
+// @import "~bootstrap/scss/images";
+// @import "~bootstrap/scss/code";
+// @import "~bootstrap/scss/grid";
+// @import "~bootstrap/scss/tables";
+// @import "~bootstrap/scss/forms";
+// @import "~bootstrap/scss/buttons";
+
+// // Components
+// @import "~bootstrap/scss/animation";
+// @import "~bootstrap/scss/dropdown";
+// @import "~bootstrap/scss/button-group";
+// @import "~bootstrap/scss/input-group";
+// @import "~bootstrap/scss/custom-forms";
+// @import "~bootstrap/scss/nav";
+// @import "~bootstrap/scss/navbar";
+// @import "~bootstrap/scss/card";
+// @import "~bootstrap/scss/breadcrumb";
+// @import "~bootstrap/scss/pagination";
+// @import "~bootstrap/scss/tags";
+// @import "~bootstrap/scss/jumbotron";
+// @import "~bootstrap/scss/alert";
+// @import "~bootstrap/scss/progress";
+// @import "~bootstrap/scss/media";
+// @import "~bootstrap/scss/list-group";
+// @import "~bootstrap/scss/responsive-embed";
+// @import "~bootstrap/scss/close";
+
+// // Components w/ JavaScript
+// @import "~bootstrap/scss/modal";
+// @import "~bootstrap/scss/tooltip";
+// @import "~bootstrap/scss/popover";
+// @import "~bootstrap/scss/carousel";
+
+// // Utility classes
+// @import "~bootstrap/scss/utilities";
+
+.container {
+    &.ng-sidebar__content {
+        margin-top: 125px;
+    }
+}
+
+a,
+button {
+    cursor: pointer;
+}
+
+.ng-sidebar{
+    // width: 25%;
+    // height: 100vh;
+    background-color: #000000 !important;
+}
+
+.icon-container {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+
+.navbar {
+    .nav-link {
+        padding: 0em 1em; 
+    }
+    
+    &__offcanvas {
+        padding: 20px;
+    }
+    
+    &--secondbar {
+        background-color: #fff;
+        top: 54px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    &--main {
+        .icon-container {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+        }
+    
+        .navbar-toggle {
+            background-color: transparent;
+            border: 0;
+            cursor: pointer;
+            
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+    
+    &__user-info {
+        margin-right: 15px;
+    }
+}
+
+.menu-icon {
+    fill: #ffffff;
+}
+
+.ng-sidebar__backdrop {
+    transform: opacity;
+    opacity: .75;
+    animation: fade .2s linear;
+}
+
+@keyframes fade {
+  0% { opacity: 0 }
+  100% { opacity: .75 }
+}
