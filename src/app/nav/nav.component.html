@@ -1,5 +1,6 @@
-<ng-sidebar [(opened)]="showNav">
-    <div *ngIf="showNav" class="navbar__offcanvas text-white">
+<ng-sidebar-container>
+<ng-sidebar position="left" [(opened)]="showNav" [showBackdrop]="_showBackdrop">
+    <div  class="navbar__offcanvas text-white">
         <button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -9,13 +10,13 @@
             </a>
         </div>
         <div>
-            <h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
+            <h3 class="text-center">{{this.user?.fullName}}</h3>
         </div>
         <div>
-            <h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
+            <h4 class="text-center">{{this.user?.membershipNumber}}</h4>
         </div>
         <div>
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav-pills flex-column">
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
                 </li>
@@ -26,7 +27,6 @@
         </div>
     </div>
 </ng-sidebar>
-<!--<div class="ng-sidebar__backdrop"></div>-->
 <nav class="navbar navbar--main fixed-top navbar-toggleable-sm navbar-dark bg-inverse" role="navigation">
     <div class="container">
         <div class="mr-auto">
@@ -72,3 +72,4 @@
         </div>
     </div>
 </nav>
+</ng-sidebar-container>

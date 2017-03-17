@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
 
   public user: Object;
   public showNav: Boolean = false;
-
+  public _showBackdrop: Boolean = true;
   constructor(private authService: AuthService, private userService: UserService) { }
   
   ngOnInit() {
