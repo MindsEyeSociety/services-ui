@@ -47,8 +47,15 @@
 // // Utility classes
 // @import "~bootstrap/scss/utilities";
 
-body {
-    margin-top: 125px;
+.container {
+    &.ng-sidebar__content {
+        margin-top: 125px;
+    }
+}
+
+a,
+button {
+    cursor: pointer;
 }
 
 .ng-sidebar{
@@ -66,6 +73,10 @@ body {
 .navbar {
     .nav-link {
         padding: 0em 1em; 
+    }
+    
+    &__offcanvas {
+        padding: 20px;
     }
     
     &--secondbar {

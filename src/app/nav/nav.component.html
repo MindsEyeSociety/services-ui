@@ -1,21 +1,20 @@
-<ng-sidebar-container>
 <ng-sidebar [(opened)]="showNav">
-    <div *ngIf="showNav" class="container text-white ng-sidebar__content">
+    <div *ngIf="showNav" class="navbar__offcanvas text-white">
         <button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
             <span aria-hidden="true">&times;</span>
         </button>
-        <div class="row">
+        <div>
             <a routerLink="/">
                 <img src="/assets/mes-icon-white.svg" class="mb-1 col-xs-6 offset-xs-3" alt="MES Logo" />
             </a>
         </div>
-        <div class="row">
+        <div>
             <h3 class="text-xs-center col-xs-12">{{this.user?.fullName}}</h3>
         </div>
-        <div class="row">
+        <div>
             <h4 class="text-xs-center col-xs-12">{{this.user?.membershipNumber}}</h4>
         </div>
-        <div class="row">
+        <div>
             <ul class="nav nav-pills nav-stacked">
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/user" (click)="onNavClick()">User Hub</a>
@@ -27,6 +26,7 @@
         </div>
     </div>
 </ng-sidebar>
+<!--<div class="ng-sidebar__backdrop"></div>-->
 <nav class="navbar navbar--main fixed-top navbar-toggleable-sm navbar-dark bg-inverse" role="navigation">
     <div class="container">
         <div class="mr-auto">
@@ -72,4 +72,3 @@
         </div>
     </div>
 </nav>
-</ng-sidebar-container>
