@@ -1,25 +1,45 @@
 <div *ngIf="ballot">
     <div *ngIf="ballot.edit">
-        Name:<br/>
-        <input type="text" [(ngModel)]="ballotChanges.name"><br/>
-        <div class="col-sm-12 col-md-5">
-        Start:<datepicker [(ngModel)]="ballotChanges.startDate"></datepicker>
-        <timepicker [(ngModel)]="ballotChanges.startDate"></timepicker>
+        <h2>Create Ballot</h2>
+        <div class="form-group row">
+            <label for="name-input" class="col-2 col-form-label">Ballot Name</label>
+            <div class="col-10">
+                <input type="text" class="form-control" [(ngModel)]="ballotChanges.name"><br/>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-5">
-        End:<datepicker [(ngModel)]="ballotChanges.endDate" (ngModelChange)="changeEndDate()"></datepicker>
-        <timepicker [(ngModel)]="ballotChanges.endDate"></timepicker>
+        <div class="form-group row">
+            <label for="date-start-input"  class="col-2 col-form-label">Start</label>
+            <div class="col-10">
+                <datepicker [(ngModel)]="ballotChanges.startDate"></datepicker>
+                <timepicker [(ngModel)]="ballotChanges.startDate"></timepicker>
+            </div>
         </div>
-        <div class="col-sm-2 col-md-2">
-        Timezone:
-        <select [(ngModel)]="ballotChanges.timezone">
-            <option *ngFor="let timezone of timezones" [value]="timezone.value">{{timezone.name}}</option>
-        </select>
+        <div class="form-group row">
+            <label for="date-end-input"  class="col-2 col-form-label">End</label>
+            <div class="col-10">
+                <datepicker [(ngModel)]="ballotChanges.endDate" (ngModelChange)="changeEndDate()"></datepicker>
+                <timepicker [(ngModel)]="ballotChanges.endDate"></timepicker>
+            </div>
         </div>
-        <div class="col-sm-12 col-md-12">
-        <button class="btn btn-primary" (click)="save()">Save</button><button *ngIf="!ballot.isNew" class="btn btn-secondary" (click)="ballot.edit=false">Cancel</button>
+        <!--<div class="form-group row">-->
+        <!--  <label for="example-date-input" class="col-2 col-form-label">Date</label>-->
+        <!--  <div class="col-10">-->
+        <!--    <input class="form-control" type="date" value="2011-08-19" id="example-date-input">-->
+        <!--  </div>-->
+        <!--</div>-->
+        <div class="form-group row">
+            <label for="timezone-input" class="col-2 col-form-label">Timezone</label>
+            <div class="col-10">
+                <select class="form-control" [(ngModel)]="ballotChanges.timezone">
+                    <option *ngFor="let timezone of timezones" [value]="timezone.value">{{timezone.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="save()">Save</button><button *ngIf="!ballot.isNew" class="btn btn-secondary" (click)="ballot.edit=false">Cancel</button>
         </div>
     </div>
+    
     <div *ngIf="!ballot.edit">
         <h1>{{ballot.name}}</h1> <button class="btn btn-secondary" (click)="startEdit()">Edit</button>
         <p>{{ballot.startFormatted}} - {{ballot.endFormatted}} {{ballot.timezoneNice}}</p>
