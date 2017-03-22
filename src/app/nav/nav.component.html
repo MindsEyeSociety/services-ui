@@ -1,5 +1,5 @@
 <ng-sidebar-container>
-<ng-sidebar position="left" [(opened)]="showNav" [showBackdrop]="_showBackdrop">
+<ng-sidebar position="left" [(opened)]="showNav" showBackdrop="true" closeOnClickOutside="true" keyClose="true">
     <div  class="navbar__offcanvas text-white">
         <button type="button" class="close text-white" aria-label="Close" (click)="onNavClick()">
             <span aria-hidden="true">&times;</span>
