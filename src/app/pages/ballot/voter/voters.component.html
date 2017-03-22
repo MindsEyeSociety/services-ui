@@ -1,4 +1,4 @@
-<div style="border:1px solid white;">
+<div>
 Voters:
 <ul *ngFor="let voter of voters">
     <app-voter [ballotId]="ballotId" [voter] = "voter"></app-voter>
@@ -6,7 +6,7 @@ Voters:
     <div *ngIf="!addVoter.edit">
         <a (click)="add()">Add Voter</a>
     </div>
-    <div style="border:1px solid white;" *ngIf="addVoter.edit">
+    <div *ngIf="addVoter.edit">
         <label>
             Membership Number:
             <input type="text" [(ngModel)]="addVoter.membershipNumber">
