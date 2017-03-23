@@ -106,7 +106,7 @@ export class BallotItemComponent implements OnInit {
             ballot => {
                 if(this.ballot.isNew){
                     this.ballotService.refreshBallots();
-                    this.router.navigate(['/ballot',ballot.id]);
+                    this.router.navigate(['/ballot/ballot',ballot.id]);
                 }else{
                     this.ballotItemService.setBallotId(this.ballot.id);
                     this.ballot.edit=false;
