@@ -20,9 +20,11 @@
                 </li>
             </ul>
             <div>
-                <h4>Current Ballots:</h4>
-                <ul class="nav nav-sidebar" *ngIf="ballots">
-                    <li *ngFor="let ballot of ballots"><a [routerLink]="ballot.id">{{ballot.name}}</a></li>
+                <h4>Current ballots</h4>
+                <ul class="nav flex-column" *ngIf="ballots">
+                    <li class="nav-item" *ngFor="let ballot of ballots">
+                        <a class="nav-link" [routerLink]="ballot.id">{{ballot.name}}</a>
+                    </li>
                 </ul>
             </div>
         </div>

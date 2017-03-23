@@ -1,19 +1,24 @@
 <div>
-Voters:
+<h5>Voters</h5>
 <ul *ngFor="let voter of voters">
     <app-voter [ballotId]="ballotId" [voter] = "voter"></app-voter>
 </ul>
     <div *ngIf="!addVoter.edit">
-        <a (click)="add()">Add Voter</a>
+        <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="add()">Add Voter</a>
     </div>
     <div *ngIf="addVoter.edit">
-        <label>
-            Membership Number:
-            <input type="text" [(ngModel)]="addVoter.membershipNumber">
-        </label><br/>OR<br/>
-        <label>
-            Entire Organization: <app-voter-org-unit (onOrgUnitIdChange)="orgUnitIdChange($event)"></app-voter-org-unit>
-        </label><br/>
-        <input type="button" (click)="save()" value="Add Voter" />
+        <form>
+            <div class="form-group row">
+                <label for="membership-number-input" class="col-3 col-form-label">Membership number</label>
+                <div class="col-9">
+                    <input class="form-control" type="text" [(ngModel)]="addVoter.membershipNumber">
+                </div>
+            </div>
+            <p>OR</p>
+            <label>
+                Entire Organization: <app-voter-org-unit (onOrgUnitIdChange)="orgUnitIdChange($event)"></app-voter-org-unit>
+            </label><br/>
+            <input type="button" (click)="save()" value="Add Voter" />
+        </form>
     </div>
 </div>

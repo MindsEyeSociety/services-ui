@@ -1,6 +1,6 @@
-<div style="border:1px solid white;">
+<div>
     <div *ngIf="!question.edit && !question.id">
-        <a (click)="startEdit()">Add Question</a>
+        <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="startEdit()">Add Question</a>
     </div>
     <div *ngIf="!question.edit && question.id">
         <h2>{{question.name}} <a (click)="startEdit()">(Edit)</a></h2>
