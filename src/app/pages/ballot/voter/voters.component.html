@@ -1,8 +1,8 @@
 <div>
-<h5>Voters</h5>
-<ul *ngFor="let voter of voters">
-    <app-voter [ballotId]="ballotId" [voter] = "voter"></app-voter>
-</ul>
+    <h5>Voters</h5>
+    <ul *ngFor="let voter of voters">
+        <app-voter [ballotId]="ballotId" [voter] = "voter"></app-voter>
+    </ul>
     <div *ngIf="!addVoter.edit">
         <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="add()">Add Voter</a>
     </div>
