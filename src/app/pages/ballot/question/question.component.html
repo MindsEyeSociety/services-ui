@@ -17,7 +17,8 @@
         <label>Type:</label> <span *ngIf="question.id">{{question.type}}</span>
         <span *ngIf="!question.id">
             <input type="radio" name="question_type" [(ngModel)]="questionChanges.type" id="office" value="office"><label for="office">Office</label> 
-            <input type="radio" name="question_type" [(ngModel)]="questionChanges.type" id="proposition" value="proposition"><label for="proposition">Proposition</label>
+            <input type="radio" name="question_type" [(ngModel)]="questionChanges.type" id="proposition" value="proposition">
+            <label for="proposition">Proposition</label>
         </span><br/>
         <span *ngIf="questionChanges.type=='office'"><label>Positions Open:</label> 
         <select [(ngModel)]="questionChanges.count">
