@@ -66,8 +66,27 @@ button {
 
 .icon-container {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    
+    &.search-svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    &.ballot-svg,
+    &.userhub-svg {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    
+    &.ballot-svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    &.userhub-svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 .navbar {
@@ -122,4 +141,9 @@ button {
 @keyframes fade {
   0% { opacity: 0 }
   100% { opacity: .75 }
+}
+
+.ballot-icon,
+.user-icon {
+    fill: #fff;
 }
