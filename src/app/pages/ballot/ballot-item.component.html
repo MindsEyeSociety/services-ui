@@ -1,7 +1,8 @@
 <div *ngIf="ballot">
     <div class="row">
         <div *ngIf="ballot.edit" class="col">
-            <h2>Create Ballot</h2>
+            <h2 *ngIf="ballot.isNew">Create ballot</h2>
+            <h2 *ngIf="!ballot.isNew">Edit ballot</h2>
             <div class="form-group row">
                 <label for="name-input" class="col-2 col-form-label">Ballot Name</label>
                 <div class="col-10">

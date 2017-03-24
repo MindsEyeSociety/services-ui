@@ -1,6 +1,8 @@
-<div><select [(ngModel)]="subOrgUnitId" (ngModelChange)="changeSubOrgUnitId()" *ngIf="orgUnits && orgUnits.length">
-    <option *ngIf="!orgUnitId" value="0">Select Unit</option>
-    <option *ngIf="orgUnitId" value="0">All of {{orgUnit.code}}</option>
-    <option *ngFor="let orgUnit of orgUnits" [value]="orgUnit.id">{{orgUnit.name}} ({{orgUnit.code}})</option>
-    </select><app-voter-org-unit *ngIf="subOrgUnitId && subOrgUnitId!=0" [orgUnitId] ="subOrgUnitId" (onOrgUnitIdChange)="childOrgUnitIdChange($event)"></app-voter-org-unit>
+<div>
+    <select [(ngModel)]="subOrgUnitId" (ngModelChange)="changeSubOrgUnitId()" *ngIf="orgUnits && orgUnits.length" class="form-control">
+        <option *ngIf="!orgUnitId" value="0">Select Unit</option>
+        <option *ngIf="orgUnitId" value="0">All of {{orgUnit.code}}</option>
+        <option *ngFor="let orgUnit of orgUnits" [value]="orgUnit.id">{{orgUnit.name}} ({{orgUnit.code}})</option>
+    </select>
+    <app-voter-org-unit *ngIf="subOrgUnitId && subOrgUnitId!=0" [orgUnitId] ="subOrgUnitId" (onOrgUnitIdChange)="childOrgUnitIdChange($event)"></app-voter-org-unit>
 </div>

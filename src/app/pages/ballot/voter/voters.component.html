@@ -7,18 +7,19 @@
         <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="add()">Add Voter</a>
     </div>
     <div *ngIf="addVoter.edit">
-        <form>
-            <div class="form-group row">
-                <label for="membership-number-input" class="col-3 col-form-label">Membership number</label>
-                <div class="col-9">
-                    <input class="form-control" type="text" [(ngModel)]="addVoter.membershipNumber">
-                </div>
+        <div class="form-group row">
+            <label for="membership-number-input" class="col-3 col-form-label">Membership number</label>
+            <div class="col-9">
+                <input class="form-control" type="text" [(ngModel)]="addVoter.membershipNumber">
             </div>
-            <p>OR</p>
-            <label>
-                Entire Organization: <app-voter-org-unit (onOrgUnitIdChange)="orgUnitIdChange($event)"></app-voter-org-unit>
-            </label><br/>
-            <input type="button" class="btn btn-primary" (click)="save()" value="Add Voter" />
-        </form>
+        </div>
+        <p class="font-weight-bold">OR</p>
+        <div class="form-group row">
+            <label class="col-3 col-form-label">Entire organization</label>
+            <div class="col-9">
+                <app-voter-org-unit (onOrgUnitIdChange)="orgUnitIdChange($event)"></app-voter-org-unit>
+            </div>
+        </div>
+        <input type="button" class="btn btn-primary" (click)="save()" value="Add Voter" />
     </div>
 </div>
