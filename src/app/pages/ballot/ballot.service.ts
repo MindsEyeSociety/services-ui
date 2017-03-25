@@ -51,7 +51,7 @@ export class BallotService {
 		let headers = this.baseHeaders();
 		headers.append('Content-Type', 'application/json');
 	    let options = new RequestOptions({ headers: headers });
-	    let ballotPost = {'id':0,'name':ballot.name,'start':ballot.start,'end':ballot.end, 'timezone': ballot.timezone};
+	    let ballotPost = {'id':0,'name':ballot.name,'startFormat': ballot.startFormat, 'endFormat':ballot.endFormat,'timezone': ballot.timezone};
 	    var url = '';
 	    if(ballot.id){ ballotPost.id = ballot.id; url = 'ballots/'+ballot.id}
 	    else{ url = 'ballots';}
