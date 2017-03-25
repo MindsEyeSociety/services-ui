@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './auth.service';
+import { SubmenuService } from './submenu.service';
 import { TitleService } from './title.service';
 import { UserService } from './user.service';
 
@@ -11,6 +12,7 @@ import { UserService } from './user.service';
   declarations: [],
   providers: [
     AuthService,
+    SubmenuService,
     TitleService,
     UserService
   ]
