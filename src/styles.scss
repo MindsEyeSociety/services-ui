@@ -47,6 +47,13 @@
 // // Utility classes
 // @import "~bootstrap/scss/utilities";
 
+// VARIABLES -- //
+
+$mainblack: #232323;
+$lato: 'Lato', sans-serif;
+
+// -- VARIABLES //
+
 .container {
     &.ng-sidebar__content {
         margin-top: 125px;
@@ -59,9 +66,7 @@ button {
 }
 
 .ng-sidebar{
-    // width: 25%;
-    // height: 100vh;
-    background-color: #000000 !important;
+    background-color: $mainblack !important;
 }
 
 .icon-container {
@@ -96,6 +101,11 @@ button {
     
     &__offcanvas {
         padding: 20px;
+        font-family: $lato;
+        
+        h5 {
+            font-family: $lato;
+        }
     }
     
     &--secondbar {
