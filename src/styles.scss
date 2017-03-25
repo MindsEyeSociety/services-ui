@@ -47,6 +47,13 @@
 // // Utility classes
 // @import "~bootstrap/scss/utilities";
 
+// VARIABLES -- //
+
+$mainblack: #232323;
+$lato: 'Lato', sans-serif;
+
+// -- VARIABLES //
+
 .container {
     &.ng-sidebar__content {
         margin-top: 125px;
@@ -59,15 +66,32 @@ button {
 }
 
 .ng-sidebar{
-    // width: 25%;
-    // height: 100vh;
-    background-color: #000000 !important;
+    background-color: $mainblack !important;
 }
 
 .icon-container {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    
+    &.search-svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    &.ballot-svg,
+    &.userhub-svg {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    
+    &.ballot-svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    &.userhub-svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 .navbar {
@@ -77,6 +101,11 @@ button {
     
     &__offcanvas {
         padding: 20px;
+        font-family: $lato;
+        
+        h5 {
+            font-family: $lato;
+        }
     }
     
     &--secondbar {
@@ -122,4 +151,9 @@ button {
 @keyframes fade {
   0% { opacity: 0 }
   100% { opacity: .75 }
+}
+
+.ballot-icon,
+.user-icon {
+    fill: #fff;
 }
