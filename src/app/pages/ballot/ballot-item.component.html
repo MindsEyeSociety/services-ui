@@ -12,15 +12,15 @@
             <div class="form-group row">
                 <label for="date-start-input"  class="col-2 col-form-label">Start</label>
                 <div class="col-10">
-                    <datepicker [(ngModel)]="ballotChanges.startDate"></datepicker>
-                    <timepicker [(ngModel)]="ballotChanges.startDate"></timepicker>
+                    <input class="form-control" type="datetime-local" [(ngModel)]="ballotChanges.startFormat">
+                    <p>{{ballotChanges.startFormat}}</p>
                 </div>
             </div>
             <div class="form-group row">
                 <label for="date-end-input"  class="col-2 col-form-label">End</label>
                 <div class="col-10">
-                    <datepicker [(ngModel)]="ballotChanges.endDate" (ngModelChange)="changeEndDate()"></datepicker>
-                    <timepicker [(ngModel)]="ballotChanges.endDate"></timepicker>
+                    <input class="form-control" type="datetime-local" [(ngModel)]="ballotChanges.endFormat">
+                    <p>{{ballotChanges.endFormat}}</p>
                 </div>
             </div>
             <!--<div class="form-group row">-->
@@ -55,7 +55,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <p>{{ballot.startFormatted}} - {{ballot.endFormatted}} {{ballot.timezoneNice}}</p>
+                    <p>{{ballot.startNice}} - {{ballot.endNice}} {{ballot.timezoneNice}}</p>
                 </div>
             </div>
         </div>
