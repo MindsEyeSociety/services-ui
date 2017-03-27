@@ -13,7 +13,7 @@
             <li *ngIf="candidate.id">{{candidate.firstName}} {{candidate.lastName}} ({{candidate.membershipNumber}})</li>
         </ul>
         <span *ngIf="!candidate.id"><label>Membership Number:</label> <input type="text" [(ngModel)]="candidateChanges.membershipNumber"/></span><br/>
-        <label>Applcation Link:</label> <input type="text" [(ngModel)]="candidateChanges.application"/><br/>
+        <label>Application Link:</label> <input type="text" [(ngModel)]="candidateChanges.application"/><br/>
         <button class="btn btn-success" (click)="save()">Save</button><button class="btn btn-danger" (click)="candidate.edit=false">Cancel</button>
     </div>
 </div>
