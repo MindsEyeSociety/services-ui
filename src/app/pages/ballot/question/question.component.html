@@ -2,36 +2,44 @@
     <div *ngIf="!question.edit && !question.id">
         <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="startEdit()">Add Question</a>
     </div>
-    <div *ngIf="!question.edit && question.id">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>{{question.name}}</h2> 
+    <div *ngIf="!question.edit && question.id" class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>{{question.name}}</h4> 
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-secondary float-right" (click)="startEdit()" href="javascript:void(0);">Edit Ballot Question</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-block">
+                    <div class="row">
+                        <span class="col-md-3 font-weight-bold">Type</span>
+                        <span class="col-md-9 text-capitalize">{{question.type}}</span>
+                    </div>
+                    <span *ngIf="question.description">
+                        <div class="row">
+                            <span class="col-md-3 font-weight-bold">Question description</span>
+                            <span class="col-md-9">{{question.description}}</span>
+                        </div>
+                    </span>
+                    <div class="row">
+                        <span class="col-md-3 font-weight-bold">Read more link</span> 
+                        <span class="col-md-9">{{question.readmore || 'None set'}}</span>
+                    </div>
+                    <div class="row">
+                        <span class="col-md-3 font-weight-bold">Discussion link</span>
+                        <span class="col-md-9">{{question.discussion || 'None set'}}</span>
+                    </div>
+                    <div *ngIf="question.type=='office'" class="row">
+                        <span class="col-md-3 font-weight-bold">Positions open</span>
+                        <span class="col-md-9">{{question.count}}</span>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                <a class="btn btn-secondary float-right" (click)="startEdit()" href="javascript:void(0);">Edit Ballot Question</a>
-            </div>
-        </div>
-        <div class="row">
-            <span class="col-md-3 font-weight-bold">Type</span>
-            <span class="col-md-9 text-capitalize">{{question.type}}</span>
-        </div>
-        <span *ngIf="question.description">
-            <div class="row">
-                <span class="col-md-3 font-weight-bold">Question description</span>
-                <span class="col-md-9">{{question.description}}</span>
-            </div>
-        </span>
-        <div class="row">
-            <span class="col-md-3 font-weight-bold">Read more link</span> 
-            <span class="col-md-9">{{question.readmore || 'None set'}}</span>
-        </div>
-        <div class="row">
-            <span class="col-md-3 font-weight-bold">Discussion link</span>
-            <span class="col-md-9">{{question.discussion || 'None set'}}</span>
-        </div>
-        <div *ngIf="question.type=='office'" class="row">
-            <span class="col-md-3 font-weight-bold">Positions open</span>
-            <span class="col-md-9">{{question.count}}</span>
         </div>
     </div>
     <div *ngIf="question.edit">
