@@ -1,7 +1,11 @@
-<div>
-    <h5>Candidates</h5>
-    <div *ngFor="let candidate of candidates">
+<div class="row">
+    <h5 class="col">Candidates</h5>
+</div>
+<div class="row">
+    <div *ngFor="let candidate of candidates" class="col-md-6">
         <app-candidate [ballotId]="ballotId" [questionId] = "questionId" [candidate]="candidate"></app-candidate>
     </div>
-    <app-candidate [ballotId]="ballotId" [questionId]="questionId" [candidate] = "addCandidate"></app-candidate>
+</div>
+<div class="row">
+    <app-candidate [ballotId]="ballotId" [questionId]="questionId" [candidate] = "addCandidate" class="col-md-6"></app-candidate>
 </div>
