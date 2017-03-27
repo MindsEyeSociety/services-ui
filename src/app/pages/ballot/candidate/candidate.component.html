@@ -1,33 +1,35 @@
-<div *ngIf="candidate">
-    <div *ngIf="!candidate.edit && !candidate.id">
-        <a (click)="startEdit()" class="btn btn-secondary">Add Candidate</a>
-    </div>        
-    <div *ngIf="!candidate.edit && candidate.id">
-        <div class="card">
-            <div class="card-block">
-                <h4 class="card-title">{{candidate.firstName}} {{candidate.lastName}} ({{candidate.membershipNumber}})</h4>
-                <p class="card-text">Candidate for ***question name***</p>
-                <span *ngIf="candidate.application"><a [href]="candidate.application" target="_blank" class="btn btn-primary">View application</a> <button (click)="startEdit()" class="btn btn-secondary">Edit</button></span>
+<div class="card-block">
+    <div *ngIf="candidate">
+        <div *ngIf="!candidate.edit && !candidate.id">
+            <a (click)="startEdit()" class="btn btn-secondary">Add Candidate</a>
+        </div>        
+        <div *ngIf="!candidate.edit && candidate.id">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">{{candidate.firstName}} {{candidate.lastName}} ({{candidate.membershipNumber}})</h4>
+                    <p class="card-text">Candidate for ***question name***</p>
+                    <span *ngIf="candidate.application"><a [href]="candidate.application" target="_blank" class="btn btn-primary">View application</a> <button (click)="startEdit()" class="btn btn-secondary">Edit</button></span>
+                </div>
             </div>
         </div>
-    </div>
-    <div *ngIf="candidate.edit">
-        <div class="card">
-            <div class="card-block">
-                <h4 *ngIf="candidate.id">{{candidate.firstName}} {{candidate.lastName}} ({{candidate.membershipNumber}})</h4>
-                <span *ngIf="!candidate.id" class="form-group row">
-                    <label class="col-3 col-form-label">Membership number:</label> 
-                    <div class="col-9">
-                        <input type="text" class="form-control" [(ngModel)]="candidateChanges.membershipNumber"/>
+        <div *ngIf="candidate.edit">
+            <div class="card">
+                <div class="card-block">
+                    <h4 *ngIf="candidate.id">{{candidate.firstName}} {{candidate.lastName}} ({{candidate.membershipNumber}})</h4>
+                    <span *ngIf="!candidate.id" class="form-group row">
+                        <label class="col-3 col-form-label">Membership number:</label> 
+                        <div class="col-9">
+                            <input type="text" class="form-control" [(ngModel)]="candidateChanges.membershipNumber"/>
+                        </div>
+                    </span>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">Application Link:</label> 
+                        <div class="col-9">
+                            <input type="text" class="form-control" [(ngModel)]="candidateChanges.application"/>
+                        </div>
                     </div>
-                </span>
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Application Link:</label> 
-                    <div class="col-9">
-                        <input type="text" class="form-control" [(ngModel)]="candidateChanges.application"/>
-                    </div>
+                    <button class="btn btn-success" (click)="save()">Save</button><button class="btn btn-danger" (click)="candidate.edit=false">Cancel</button>
                 </div>
-                <button class="btn btn-success" (click)="save()">Save</button><button class="btn btn-danger" (click)="candidate.edit=false">Cancel</button>
             </div>
         </div>
     </div>
