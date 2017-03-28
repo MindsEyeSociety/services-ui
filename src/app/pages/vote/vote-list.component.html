@@ -1,15 +1,14 @@
 <div class="container">
     <div class="row">
-        <div class="sidebar col-sm-3 col-md-3">
-    
-            <div>
-                <h4>Available Votes:</h4>
-                <ul class="nav nav-sidebar" *ngIf="votes">
-                    <li *ngFor="let vote of votes"><a [routerLink]="vote.id">{{vote.name}}</a></li>
-                </ul>
-            </div>
+        <div class="sidebar col-md-3">
+            <h4>Available votes</h4>
+            <ul class="nav flex-column" *ngIf="votes">
+                <li *ngFor="let vote of votes" class="nav-item">
+                    <a [routerLink]="vote.id" class="nav-link">{{vote.name}}</a>
+                </li>
+            </ul>
         </div>
-        <div class="col-sm-9 col-md-9 main">
+        <div class="col-md-9">
             <router-outlet></router-outlet>
         </div>
     </div>
