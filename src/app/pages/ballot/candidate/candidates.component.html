@@ -1,11 +1,11 @@
-<div class="card-block">
-    <h3 class="col">Candidates</h3>
-</div>
-<div class="row">
-    <div *ngFor="let candidate of candidates" class="col-md-6">
-        <app-candidate [ballotId]="ballotId" [questionId] = "questionId" [candidate]="candidate"></app-candidate>
+<div class="container container__candidates">
+    <h3 class="list-group-item-heading">Candidates</h3>
+
+    <div class="row">
+        <div *ngFor="let candidate of candidates" class="col-md-6">
+                <app-candidate [ballotId]="ballotId" [questionId] = "questionId" [candidate]="candidate"></app-candidate>
+        </div>
     </div>
-</div>
-<div class="row">
-    <app-candidate [ballotId]="ballotId" [questionId]="questionId" [candidate] = "addCandidate" class="col-md-6"></app-candidate>
+
+    <app-candidate [ballotId]="ballotId" [questionId]="questionId" [candidate] = "addCandidate"></app-candidate>
 </div>

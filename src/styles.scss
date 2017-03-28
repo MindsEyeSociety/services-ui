@@ -169,3 +169,20 @@ button {
 .user-icon {
     fill: #fff;
 }
+
+// Close button in offcanvas menu
+.close {
+    text-shadow: 0;
+    
+    &:focus {
+        outline: 0;
+        opacity: .7;
+    }
+}
+
+.container {
+    &__candidates {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}

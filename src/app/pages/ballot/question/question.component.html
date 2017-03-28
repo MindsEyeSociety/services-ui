@@ -1,48 +1,50 @@
-<div class="card">
-    <div *ngIf="!question.edit && !question.id">
-        <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="startEdit()">Add Question</a>
-    </div>
-    <div *ngIf="!question.edit && question.id" class="row">
-        <div class="col">
-            <!--<div class="card">-->
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h4>{{question.name}}</h4> 
-                        </div>
-                        <div class="col-md-6">
-                            <a class="btn btn-secondary float-right" (click)="startEdit()" href="javascript:void(0);">Edit Ballot Question</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-block">
-                    <div class="row">
-                        <span class="col-md-3 font-weight-bold">Type</span>
-                        <span class="col-md-9 text-capitalize">{{question.type}}</span>
-                    </div>
-                    <span *ngIf="question.description">
-                        <div class="row">
-                            <span class="col-md-3 font-weight-bold">Question description</span>
-                            <span class="col-md-9">{{question.description}}</span>
-                        </div>
-                    </span>
-                    <div class="row">
-                        <span class="col-md-3 font-weight-bold">Read more link</span> 
-                        <span class="col-md-9">{{question.readmore || 'None set'}}</span>
-                    </div>
-                    <div class="row">
-                        <span class="col-md-3 font-weight-bold">Discussion link</span>
-                        <span class="col-md-9">{{question.discussion || 'None set'}}</span>
-                    </div>
-                    <div *ngIf="question.type=='office'" class="row">
-                        <span class="col-md-3 font-weight-bold">Positions open</span>
-                        <span class="col-md-9">{{question.count}}</span>
-                    </div>
-                </div>
+<div *ngIf="!question.edit && !question.id">
+    <a class="btn btn-primary" role="button" href="javascript:void(0)" (click)="startEdit()">Add Question</a>
+</div>
+
+<span *ngIf="!question.edit && question.id">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>{{question.name}}</h4> 
             </div>
-        <!--</div>-->
+            <div class="col-md-6">
+                <a class="btn btn-secondary float-right" (click)="startEdit()" href="javascript:void(0);">Edit Ballot Question</a>
+            </div>
+        </div>
     </div>
-    <div *ngIf="question.edit">
+    <div class="card-block">
+        <div class="row">
+            <span class="col-md-3 font-weight-bold">Type</span>
+            <span class="col-md-9 text-capitalize">{{question.type}}</span>
+        </div>
+        <span *ngIf="question.description">
+            <div class="row">
+                <span class="col-md-3 font-weight-bold">Question description</span>
+                <span class="col-md-9">{{question.description}}</span>
+            </div>
+        </span>
+        <div class="row">
+            <span class="col-md-3 font-weight-bold">Read more link</span> 
+            <span class="col-md-9">{{question.readmore || 'None set'}}</span>
+        </div>
+        <div class="row">
+            <span class="col-md-3 font-weight-bold">Discussion link</span>
+            <span class="col-md-9">{{question.discussion || 'None set'}}</span>
+        </div>
+        <div *ngIf="question.type=='office'" class="row">
+            <span class="col-md-3 font-weight-bold">Positions open</span>
+            <span class="col-md-9">{{question.count}}</span>
+        </div>
+    </div>
+</span>
+
+<span *ngIf="question.edit">
+    <div class="card-header">
+        <h4 *ngIf="question.id">Edit "{{question.name}}"</h4>   
+        <h4 *ngIf="!question.id">Add new question</h4>
+    </div>
+    <div class="card-block">
         <div class="form-group row">
             <label for="question-name-input" class="col-2 col-form-label">Name</label> 
             <div class="col-10">
@@ -50,24 +52,28 @@
             </div>
         </div>
         <fieldset class="form-group">
-            <legend>Type</legend> 
-            <span *ngIf="question.id">{{question.type}}</span>
-            <span *ngIf="!question.id">
-                <div class="form-check">
-                    <label for="office" class="custom-control custom-radio form-check-label">
-                        <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="office" value="office">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Office</span>
-                    </label> 
+            <div class="row">
+                <div class="col-2">Type</div> 
+                <div class="col-10">
+                    <span *ngIf="question.id">{{question.type}}</span>
+                    <span *ngIf="!question.id">
+                        <div class="form-check">
+                            <label for="office" class="custom-control custom-radio form-check-label">
+                                <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="office" value="office">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Office</span>
+                            </label> 
+                        </div>
+                        <div class="form-check">
+                            <label for="proposition" class="custom-control custom-radio form-check-label">
+                                <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="proposition" value="proposition">
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Proposition</span>
+                            </label>
+                        </div>
+                    </span>
                 </div>
-                <div class="form-check">
-                    <label for="proposition" class="custom-control custom-radio form-check-label">
-                        <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="proposition" value="proposition">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Proposition</span>
-                    </label>
-                </div>
-            </span>
+            </div>
         </fieldset>
         <span *ngIf="questionChanges.type=='office'">
             <div class="form-group row">
@@ -99,9 +105,9 @@
         </div>
         <button class="btn btn-success" (click)="save()">Save</button>
         <button class="btn btn-danger" (click)="question.edit=false">Cancel</button>
+    </div>
+</span>
 
-    </div>
-    <div *ngIf="question.id && question.type=='office'">
-        <app-candidates [candidates] = "question.candidates" [ballotId]="ballotId" [questionId]="question.id"></app-candidates>
-    </div>
+<div *ngIf="question.id && question.type=='office'" class="list-group list-group-flush">
+    <app-candidates [candidates] = "question.candidates" [ballotId]="ballotId" [questionId]="question.id" class="list-group-item"></app-candidates>
 </div>
