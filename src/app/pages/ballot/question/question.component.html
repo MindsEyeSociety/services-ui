@@ -40,71 +40,73 @@
 </span>
 
 <span *ngIf="question.edit">
-    <div class="card-header">
-        <h4 *ngIf="question.id">Edit "{{question.name}}"</h4>   
-        <h4 *ngIf="!question.id">Add new question</h4>
-    </div>
-    <div class="card-block">
-        <div class="form-group row">
-            <label for="question-name-input" class="col-2 col-form-label">Name</label> 
-            <div class="col-10">
-                <input type="text" class="form-control" id="question-name-input" [(ngModel)]="questionChanges.name"/>
-            </div>
+    <div class="card">
+        <div class="card-header">
+            <h4 *ngIf="question.id">Edit "{{question.name}}"</h4>   
+            <h4 *ngIf="!question.id">Add new question</h4>
         </div>
-        <fieldset class="form-group">
-            <div class="row">
-                <div class="col-2">Type</div> 
-                <div class="col-10">
-                    <span *ngIf="question.id">{{question.type}}</span>
-                    <span *ngIf="!question.id">
-                        <div class="form-check">
-                            <label for="office" class="custom-control custom-radio form-check-label">
-                                <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="office" value="office">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Office</span>
-                            </label> 
-                        </div>
-                        <div class="form-check">
-                            <label for="proposition" class="custom-control custom-radio form-check-label">
-                                <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="proposition" value="proposition">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">Proposition</span>
-                            </label>
-                        </div>
-                    </span>
-                </div>
-            </div>
-        </fieldset>
-        <span *ngIf="questionChanges.type=='office'">
+        <div class="card-block">
             <div class="form-group row">
-                <label class="col-2 col-form-label">Positions open</label> 
+                <label for="question-name-input" class="col-2 col-form-label">Name</label> 
                 <div class="col-10">
-                    <select [(ngModel)]="questionChanges.count" class="form-control">
-                        <option *ngFor="let count of countOptions" [value]="count">{{count}}</option>
-                    </select>
+                    <input type="text" class="form-control" id="question-name-input" [(ngModel)]="questionChanges.name"/>
                 </div>
             </div>
-        </span>
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Description</label>
-            <div class="col-10">
-                <textarea class="form-control" rows="3" [(ngModel)]="questionChanges.description"></textarea>
+            <fieldset class="form-group">
+                <div class="row">
+                    <div class="col-2">Type</div> 
+                    <div class="col-10">
+                        <span *ngIf="question.id">{{question.type}}</span>
+                        <span *ngIf="!question.id">
+                            <div class="form-check">
+                                <label for="office" class="custom-control custom-radio form-check-label">
+                                    <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="office" value="office">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Office</span>
+                                </label> 
+                            </div>
+                            <div class="form-check">
+                                <label for="proposition" class="custom-control custom-radio form-check-label">
+                                    <input type="radio" class="form-check-input custom-control-input" name="question_type" [(ngModel)]="questionChanges.type" id="proposition" value="proposition">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Proposition</span>
+                                </label>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <span *ngIf="questionChanges.type=='office'">
+                <div class="form-group row">
+                    <label class="col-2 col-form-label">Positions open</label> 
+                    <div class="col-10">
+                        <select [(ngModel)]="questionChanges.count" class="form-control">
+                            <option *ngFor="let count of countOptions" [value]="count">{{count}}</option>
+                        </select>
+                    </div>
+                </div>
+            </span>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Description</label>
+                <div class="col-10">
+                    <textarea class="form-control" rows="3" [(ngModel)]="questionChanges.description"></textarea>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Read more link</label>
-            <div class="col-10">
-                <input class="form-control" type="text" [(ngModel)]="questionChanges.readmore"/>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Read more link</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" [(ngModel)]="questionChanges.readmore"/>
+                </div>
             </div>
-        </div>
-        <div class="form-group row">
-            <label class="col-2 col-form-label">Discussion link</label>
-            <div class="col-10">
-                <input class="form-control" type="text" [(ngModel)]="questionChanges.discussion"/>
+            <div class="form-group row">
+                <label class="col-2 col-form-label">Discussion link</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" [(ngModel)]="questionChanges.discussion"/>
+                </div>
             </div>
+            <button class="btn btn-success" (click)="save()">Save</button>
+            <button class="btn btn-danger" (click)="question.edit=false">Cancel</button>
         </div>
-        <button class="btn btn-success" (click)="save()">Save</button>
-        <button class="btn btn-danger" (click)="question.edit=false">Cancel</button>
     </div>
 </span>
 
