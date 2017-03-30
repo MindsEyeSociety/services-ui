@@ -10,6 +10,7 @@ export class CandidateComponent implements OnInit {
     @Input() candidate: any;
     @Input() ballotId: number;
     @Input() questionId: number;
+    @Input() question: any;
     private candidateChanges: any;
 
 

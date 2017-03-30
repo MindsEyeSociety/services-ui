@@ -111,5 +111,5 @@
 </span>
 
 <div *ngIf="question.id && question.type=='office'" class="list-group list-group-flush">
-    <app-candidates [candidates] = "question.candidates" [ballotId]="ballotId" [questionId]="question.id" class="list-group-item"></app-candidates>
+    <app-candidates [candidates] = "question.candidates" [ballotId]="ballotId" [questionId]="question.id" [question]="question" class="list-group-item"></app-candidates>
 </div>

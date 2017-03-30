@@ -8,6 +8,7 @@ export class CandidatesComponent implements OnInit {
     @Input() candidates: any;
     @Input() ballotId: number;
     @Input() questionId: number;
+    @Input() question: any;
     addCandidate:any;
     constructor() {
         this.addCandidate ={

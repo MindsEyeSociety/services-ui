@@ -6,7 +6,7 @@
         <div class="card-block">
             <h4 class="card-title">{{candidate.firstName}} {{candidate.lastName}}</h4>
             <h6 class="card-subtitle mb-2 text-muted">({{candidate.membershipNumber}})</h6>
-            <p class="card-text">Candidate for ***question name***</p>
+            <p class="card-text">Candidate for {{question.name}}</p>
             <span *ngIf="candidate.application"><a [href]="candidate.application" target="_blank" class="btn btn-primary">View application</a> <button (click)="startEdit()" class="btn btn-secondary">Edit</button></span>
             <span *ngIf="!candidate.application"><button (click)="startEdit()" class="btn btn-secondary">Edit</button></span>
         </div>
