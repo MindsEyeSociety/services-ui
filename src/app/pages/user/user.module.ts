@@ -6,13 +6,14 @@ import { ProfileComponent } from './profile.component';
 import { TitleService } from 'app/core/title.service';
 import { LocationComponent } from './location.component';
 import { OfficersComponent } from './officers.component';
+import { MembersComponent } from './members.component';
 
 @NgModule({
   imports: [
     CommonModule,
     UserRoutingModule
   ],
-  declarations: [UserComponent, ProfileComponent, LocationComponent, OfficersComponent],
+  declarations: [UserComponent, ProfileComponent, LocationComponent, OfficersComponent, MembersComponent],
   providers: []
 })
 
