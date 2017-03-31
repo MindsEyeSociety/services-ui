@@ -4,7 +4,6 @@ import { TitleService } from 'app/core/title.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: []
 })
 export class HomeComponent implements OnInit {
 

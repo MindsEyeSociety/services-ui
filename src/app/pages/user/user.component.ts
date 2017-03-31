@@ -7,7 +7,6 @@ import { TitleService } from 'app/core/title.service';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: []
 })
 export class UserComponent implements OnInit {
 
