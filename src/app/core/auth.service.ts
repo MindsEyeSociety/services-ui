@@ -53,7 +53,15 @@ export class AuthService {
       this.setToken(params['token']);
       return of({ 'success': true, 'userToken': params['token'] });
     }
+    else if(localStorage.getItem('user-token')){
+      this.userToken = localStorage.getItem('user-token');
+      this.userTokenSubject.next(this.userToken);
+      this.userTokenSubject.complete();
+      return this.loginNew();
+    }
     else{
+      this.userTokenSubject.next('');
+      this.userTokenSubject.complete();
       return of({ 'success': false });
     }
   }
