@@ -1,6 +1,8 @@
 import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { UserService } from 'app/core/user.service';
 import { AuthService } from 'app/core/auth.service';
+import { SubmenuService } from 'app/core/submenu.service';
+import { SubmenuItem } from 'app/core/submenu-item.model';
 
 import {
   Component,
@@ -21,14 +23,19 @@ export class NavComponent implements OnInit {
 
   public user: Object;
   public showNav: Boolean = false;
-  public _showBackdrop: Boolean = true;
-  constructor(private authService: AuthService, private userService: UserService) { }
+  private submenuItems:SubmenuItem[];
+  constructor(private authService: AuthService, private userService: UserService, private submenuService: SubmenuService) { }
   
   ngOnInit() {
     this.userService.currentUser.subscribe(
       user => this.user = user,
       err => console.log(err)
     );
+    
+    this.submenuService.getItems().subscribe(
+      (items) => { this.submenuItems = items; console.log('submenu items', this.submenuItems);}
+    );
+    
   }
 
   onNavClick() {

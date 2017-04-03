@@ -1,31 +1,67 @@
 <div *ngIf="ballot">
-    <div *ngIf="ballot.edit">
-        Name:<br/>
-        <input type="text" [(ngModel)]="ballotChanges.name"><br/>
-        <div class="col-sm-12 col-md-5">
-        Start:<datepicker [(ngModel)]="ballotChanges.startDate"></datepicker>
-        <timepicker [(ngModel)]="ballotChanges.startDate"></timepicker>
-        </div>
-        <div class="col-sm-12 col-md-5">
-        End:<datepicker [(ngModel)]="ballotChanges.endDate" (ngModelChange)="changeEndDate()"></datepicker>
-        <timepicker [(ngModel)]="ballotChanges.endDate"></timepicker>
-        </div>
-        <div class="col-sm-2 col-md-2">
-        Timezone:
-        <select [(ngModel)]="ballotChanges.timezone">
-            <option *ngFor="let timezone of timezones" [value]="timezone.value">{{timezone.name}}</option>
-        </select>
-        </div>
-        <div class="col-sm-12 col-md-12">
-        <button class="btn btn-primary" (click)="save()">Save</button><button *ngIf="!ballot.isNew" class="btn btn-secondary" (click)="ballot.edit=false">Cancel</button>
+    <div class="row">
+        <div *ngIf="ballot.edit" class="col">
+            <h2 *ngIf="ballot.isNew">Create ballot</h2>
+            <h2 *ngIf="!ballot.isNew">Edit ballot</h2>
+            <div class="form-group row">
+                <label for="name-input" class="col-2 col-form-label">Ballot Name</label>
+                <div class="col-10">
+                    <input type="text" class="form-control" [(ngModel)]="ballotChanges.name"><br/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="date-start-input"  class="col-2 col-form-label">Start</label>
+                <div class="col-10">
+                    <input class="form-control" type="datetime-local" [(ngModel)]="ballotChanges.startFormat">
+                    <small class="form-text text-muted">{{ballotChanges.startFormat}}</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="date-end-input"  class="col-2 col-form-label">End</label>
+                <div class="col-10">
+                    <input class="form-control" type="datetime-local" [(ngModel)]="ballotChanges.endFormat">
+                    <small class="form-text text-muted">{{ballotChanges.endFormat}}</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="timezone-input" class="col-2 col-form-label">Timezone</label>
+                <div class="col-10">
+                    <select class="form-control" [(ngModel)]="ballotChanges.timezone">
+                        <option *ngFor="let timezone of timezones" [value]="timezone.value">{{timezone.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" (click)="save()">Save</button>
+                <button *ngIf="!ballot.isNew" class="btn btn-secondary" (click)="ballot.edit=false">Cancel</button>
+            </div>
         </div>
     </div>
-    <div *ngIf="!ballot.edit">
-        <h1>{{ballot.name}}</h1> <button class="btn btn-secondary" (click)="startEdit()">Edit</button>
-        <p>{{ballot.startFormatted}} - {{ballot.endFormatted}} {{ballot.timezoneNice}}</p>
+    <div>
+        <div *ngIf="!ballot.edit">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="float-left">{{ballot.name}}</h1> 
+                </div>
+                <div class="col-md-6 text-right">
+                    <button class="btn btn-secondary float-right" (click)="startEdit()">Edit</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>{{ballot.startNice}} - {{ballot.endNice}} {{ballot.timezoneNice}}</p>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <app-questions [ballotId]="ballot.id" [questions]="ballot.questions" *ngIf="!ballot.edit"></app-questions>
-    
-    <app-voters [ballotId]="ballot.id" *ngIf="!ballot.edit"></app-voters>
+    <div class="row">
+        <div class="col">
+            <app-questions [ballotId]="ballot.id" [questions]="ballot.questions" *ngIf="!ballot.edit"></app-questions>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <app-voters [ballotId]="ballot.id" *ngIf="!ballot.edit"></app-voters>
+        </div>
+    </div>
 </div>

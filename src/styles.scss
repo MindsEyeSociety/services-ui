@@ -47,6 +47,13 @@
 // // Utility classes
 // @import "~bootstrap/scss/utilities";
 
+// VARIABLES -- //
+
+$color-primary: #232323;
+$lato: 'Lato', sans-serif;
+
+// -- VARIABLES //
+
 .container {
     &.ng-sidebar__content {
         margin-top: 125px;
@@ -59,15 +66,42 @@ button {
 }
 
 .ng-sidebar{
-    // width: 25%;
-    // height: 100vh;
-    background-color: #000000 !important;
+    background-color: $color-primary !important;
+    width: 300px;
+}
+
+.nav {
+    &__logo {
+        margin-right: auto;
+        margin-bottom: 40px;
+        margin-left: auto;
+        width: 175px;
+    }
 }
 
 .icon-container {
     display: inline-block;
-    width: 16px;
-    height: 16px;
+    
+    &.search-svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    &.ballot-svg,
+    &.userhub-svg {
+        vertical-align: middle;
+        margin-right: 10px;
+    }
+    
+    &.ballot-svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    &.userhub-svg {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 .navbar {
@@ -76,7 +110,14 @@ button {
     }
     
     &__offcanvas {
-        padding: 20px;
+        padding-top: 25px;
+        padding-right: 40px;
+        padding-left: 40px;
+        font-family: $lato;
+        
+        h5 {
+            font-family: $lato;
+        }
     }
     
     &--secondbar {
@@ -122,4 +163,26 @@ button {
 @keyframes fade {
   0% { opacity: 0 }
   100% { opacity: .75 }
+}
+
+.ballot-icon,
+.user-icon {
+    fill: #fff;
+}
+
+// Close button in offcanvas menu
+.close {
+    text-shadow: 0;
+    
+    &:focus {
+        outline: 0;
+        opacity: .7;
+    }
+}
+
+.container {
+    &__candidates {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

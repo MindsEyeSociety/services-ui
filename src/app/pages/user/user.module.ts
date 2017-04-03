@@ -13,4 +13,5 @@ import { TitleService } from 'app/core/title.service';
   providers: []
 })
 
-export class UserModule {}
+export class UserModule {
+}

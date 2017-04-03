@@ -1,7 +1,6 @@
-<div>
-Questions:
-<div *ngFor="let question of questions">
+<h3>Questions</h3>
+<div *ngFor="let question of questions" class="card mb-4">
     <app-question [ballotId]="ballotId" [question] = "question"></app-question>
 </div>
+
 <app-question [ballotId]="ballotId" [question] = "addQuestion"></app-question>
-</div>

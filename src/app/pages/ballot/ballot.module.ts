@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatepickerModule, TimepickerModule } from 'ng2-bootstrap';
-import { TitleService } from 'app/core/title.service';
+import { FormsModule } from '@angular/forms';
 import { BallotRoutingModule }       from './ballot-routing.module';
 import { BallotListComponent } from './ballot-list.component';
 import { BallotItemComponent } from './ballot-item.component';
@@ -20,15 +19,13 @@ import { VoterOrgUnitComponent } from './voter/voter-org-unit.component';
 @NgModule({
   imports: [
     CommonModule,
-    DatepickerModule,
-    TimepickerModule,
-    BallotRoutingModule
+    BallotRoutingModule,
+    FormsModule
   ],
   declarations: [BallotListComponent, BallotItemComponent, BallotHomeComponent, QuestionComponent, QuestionsComponent, CandidatesComponent, CandidateComponent, CandidateComponent, CandidatesComponent, VoterComponent, VotersComponent, VoterOrgUnitComponent],
   providers: [BallotService, BallotItemService]
 })
 export class BallotModule { 
-  constructor( private titleService: TitleService ) {
-    this.titleService.setTitle( 'Manage Ballots' );
+  constructor( ) {
   }
 }

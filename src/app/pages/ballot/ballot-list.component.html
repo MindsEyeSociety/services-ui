@@ -1,29 +1,17 @@
 <div class="container">
     <div class="row">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="nav-item" routerLinkActive="active">
-            	<a class="nav-link" routerLink="/ballot/ballot">Manage Ballots</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-            	<a class="nav-link" routerLink="/ballot/vote">Vote</a>
-            </li>
-        </ul>
-    </div>
-    <div class="row">
-        <div class="sidebar col-sm-3 col-md-3">
-            <ul class="nav nav-fill nav-pills flex-column">
-                <li class="nav-item">
-                    <a routerLink="new" class="nav-link">New Ballot</a>
-                </li>
-            </ul>
+        <div class="sidebar col-md-3">
+                <a routerLink="new" class="btn btn-primary btn-block">New Ballot</a>
             <div>
-                <h4>Current Ballots:</h4>
-                <ul class="nav nav-sidebar" *ngIf="ballots">
-                    <li *ngFor="let ballot of ballots"><a [routerLink]="ballot.id">{{ballot.name}}</a></li>
+                <h4>Current ballots</h4>
+                <ul class="nav flex-column" *ngIf="ballots">
+                    <li class="nav-item" *ngFor="let ballot of ballots">
+                        <a class="nav-link" [routerLink]="ballot.id">{{ballot.name}}</a>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div class="col-sm-9 col-md-9 main">
+        <div class="col-md-9 main">
             <router-outlet></router-outlet>
         </div>
     </div>
