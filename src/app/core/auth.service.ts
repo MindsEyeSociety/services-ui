@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
 import { Observable, AsyncSubject } from 'rxjs/Rx';
+import { of } from 'rxjs/observable/of';
 
 
 @Injectable()
@@ -11,7 +12,7 @@ export class AuthService {
   public userTokenSubject: AsyncSubject<string> = new AsyncSubject();
   constructor(private _location: Location) {
     // Attempt to pull from storage upon instantiation.
-    var params = this.decodeQueryString(this._location.path());
+    /*var params = this.decodeQueryString(this._location.path());
     console.log(params);
     if(params['token']){
       console.log('setting token in auth Constructor',params['token']);
@@ -25,7 +26,7 @@ export class AuthService {
     else{
       this.userTokenSubject.next('');
       this.userTokenSubject.complete();
-    }
+    }*/
   }
 
   public setToken(token: string): void {
@@ -41,22 +42,38 @@ export class AuthService {
       this.login();
     }
   }
-  
-  public login(): void {
-    window.location.href = environment.externalUrls.authLogin;
 
+  public login(): void {
+    //window.location.href = environment.externalUrls.authLogin;
   }
-  
+  loginNew(): Observable<any> {
+    var params = this.decodeQueryString(this._location.path());
+    if(params['token']){
+      //console.log('[SERVICE] Auth. Login: ', params['token']);
+      this.setToken(params['token']);
+      return of({ 'success': true, 'userToken': params['token'] });
+    }
+    else{
+      return of({ 'success': false });
+    }
+  }
+
   public clearToken():void{
     this.userToken = null;
     localStorage.removeItem('user-token');
   }
 
   // Destroys local token, removes from storage, and redirects to porta logout.
-  public logout(): void {
+  /* public logout(): void {
     this.clearToken();
     window.location.href = environment.externalUrls.authLogout;
+  } */
+  logout(): Observable<any> {
+    this.clearToken();
+    return of({ 'success': true });
   }
+
+
   decodeQueryString(path:string){
     var querystring = path.substring(path.indexOf('?')+1).split('&');
     var params = {}, pair, d = decodeURIComponent;

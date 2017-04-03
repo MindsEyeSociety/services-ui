@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { Error404Component } from './pages/error404/error404.component';
 import { UserService } from 'app/core/user.service';
 
-const appRoutes: Routes = [
+export const appRoutes: Routes = [
   { path: '', loadChildren: 'app/pages/home/home.module#HomeModule' },
   { path: 'login', loadChildren: 'app/pages/login/login.module#LoginModule'},
   { path: 'user', loadChildren: 'app/pages/user/user.module#UserModule', canActivate: [UserService]},
