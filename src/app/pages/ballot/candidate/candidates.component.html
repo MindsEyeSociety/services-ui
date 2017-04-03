@@ -3,9 +3,9 @@
 
     <div class="row">
         <div *ngFor="let candidate of candidates" class="col-md-6">
-                <app-candidate [ballotId]="ballotId" [questionId] = "questionId" [candidate]="candidate"></app-candidate>
+                <app-candidate [ballotId]="ballotId" [questionId] = "questionId" [question]="question" [candidate]="candidate"></app-candidate>
         </div>
     </div>
 
-    <app-candidate [ballotId]="ballotId" [questionId]="questionId" [candidate] = "addCandidate"></app-candidate>
+    <app-candidate [ballotId]="ballotId" [questionId]="questionId" [question]="question" [candidate] = "addCandidate"></app-candidate>
 </div>

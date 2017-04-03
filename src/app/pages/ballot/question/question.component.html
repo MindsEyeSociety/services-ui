@@ -3,16 +3,16 @@
 </div>
 
 <span *ngIf="!question.edit && question.id">
-    <div class="card-header">
+    <h4 class="card-header">
         <div class="row">
             <div class="col-md-6">
-                <h4>{{question.name}}</h4> 
+                {{question.name}}
             </div>
             <div class="col-md-6">
-                <a class="btn btn-secondary float-right" (click)="startEdit()" href="javascript:void(0);">Edit Ballot Question</a>
+                <a class="btn btn-secondary btn-sm float-right" (click)="startEdit()" href="javascript:void(0);">Edit Ballot Question</a>
             </div>
         </div>
-    </div>
+    </h4>
     <div class="card-block">
         <div class="row">
             <span class="col-md-3 font-weight-bold">Type</span>
@@ -39,11 +39,11 @@
     </div>
 </span>
 
-<span *ngIf="question.edit">
-    <div class="card-header">
-        <h4 *ngIf="question.id">Edit "{{question.name}}"</h4>   
-        <h4 *ngIf="!question.id">Add new question</h4>
-    </div>
+<div [class.card]="!question.id" *ngIf="question.edit">
+    <h4 class="card-header">
+        <span *ngIf="question.id">Edit "{{question.name}}"</span>   
+        <span *ngIf="!question.id">Add new question</span>
+    </h4>
     <div class="card-block">
         <div class="form-group row">
             <label for="question-name-input" class="col-2 col-form-label">Name</label> 
@@ -106,8 +106,9 @@
         <button class="btn btn-success" (click)="save()">Save</button>
         <button class="btn btn-danger" (click)="question.edit=false">Cancel</button>
     </div>
-</span>
+</div>
+
 
 <div *ngIf="question.id && question.type=='office'" class="list-group list-group-flush">
-    <app-candidates [candidates] = "question.candidates" [ballotId]="ballotId" [questionId]="question.id" class="list-group-item"></app-candidates>
+    <app-candidates [candidates] = "question.candidates" [ballotId]="ballotId" [questionId]="question.id" [question]="question" class="list-group-item"></app-candidates>
 </div>

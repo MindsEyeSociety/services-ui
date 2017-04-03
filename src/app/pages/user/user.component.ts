@@ -22,7 +22,9 @@ export class UserComponent implements OnInit {
     this.submenuService.setItems(
       [
         {'title': 'Profile', 'path': '/user/profile'},
+        {'title': 'Officers', 'path': '/user/officers'},
         {'title': 'Locations', 'path': '/user/locations'},
+        {'title': 'Members', 'path': '/user/members'},
       ]
     );
   }

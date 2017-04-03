@@ -54,6 +54,14 @@
                 <li *ngFor="let submenuItem of submenuItems" class="nav-item">
                     <a class="nav-link" routerLinkActive="active" [routerLink]="submenuItem.path">{{submenuItem.title}}</a>
                 </li>
+                <li class="nav-item">
+                    <span class="icon-container search-svg">
+                        <a>
+                           <!-- magnifying glass search icon -->
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 489.6 489.6"><path d="M189.7.038C85.3.038 0 85.338 0 189.738c0 104.4 85.3 189.7 189.7 189.7 41.2 0 79.4-13.3 110.5-35.8l137.2 137c11.9 11.9 31.3 12 43.2 0 12-12 12-31.3 0-43.2l-136.9-137.1c22.5-31.2 35.8-69.4 35.8-110.5 0-104.5-85.3-189.8-189.8-189.8zm0 61.2c71.3 0 128.5 57.2 128.5 128.5s-57.2 128.5-128.5 128.5-128.5-57.2-128.5-128.5c0-71.4 57.2-128.5 128.5-128.5z"/></svg>
+                       </a>
+                    </span>
+                </li>
             </ul>
         </div>
     </div>
