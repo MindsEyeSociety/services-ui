@@ -44,7 +44,7 @@ export class AuthService {
   }
 
   public login(): void {
-    //window.location.href = environment.externalUrls.authLogin;
+    window.location.href = environment.externalUrls.authLogin;
   }
   loginNew(): Observable<any> {
     var params = this.decodeQueryString(this._location.path());
