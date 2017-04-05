@@ -10,10 +10,10 @@
             </a>
         </div>
         <div>
-            <h5 class="text-center">{{this.user?.fullName}}</h5>
+            <h5 class="text-center">{{session.user?.fullName}}</h5>
         </div>
         <div>
-            <h5 class="text-center">{{this.user?.membershipNumber}}</h5>
+            <h5 class="text-center">{{session.user?.membershipNumber}}</h5>
         </div>
         <div>
             <ul class="nav nav-pills flex-column">
@@ -38,12 +38,11 @@
             <a class="navbar-brand text-white" routerLink="/">
                 MES Services
             </a>
-            
+
         </div>
         <div class="nav navbar-nav">
-            <span class="navbar-text text-white navbar__user-info"><small>{{this.user?.fullName}} {{this.user?.membershipNumber}}</small></span>
-              <!--This will work as long as the authService is injected into this component. -->
-            <button (click)="authService.logout()" type="button" class="btn btn-outline-secondary btn-sm">Logout</button>
+            <span class="navbar-text text-white navbar__user-info"><small>{{session.user?.fullName}} {{session.user?.membershipNumber}}</small></span>
+            <button (click)="logout()" type="button" class="btn btn-outline-secondary btn-sm">Logout</button>
         </div>
     </div>
 </nav>

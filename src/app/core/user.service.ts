@@ -18,7 +18,7 @@ export class UserService implements CanActivate {
   public currentUser: AsyncSubject<Object> = new AsyncSubject();
 
   constructor(private http: Http, private authService: AuthService) {
-    var userTokenSub = this.authService.userTokenSubject.subscribe(
+    /*var userTokenSub = this.authService.userTokenSubject.subscribe(
       (userToken:string)=>{
         console.log('user token subscription called',userToken);
         if(!userToken || userToken.length == 0){
@@ -41,11 +41,11 @@ export class UserService implements CanActivate {
             }
           )
         }
-      }  
-    );
-    
+      }
+    );*/
+
   }
-  
+
   canActivate() {
     return this.currentUser.asObservable().map(
       (user:any)=>

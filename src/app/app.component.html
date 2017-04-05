@@ -1,4 +1,4 @@
-<app-nav></app-nav>
+<app-nav [session]='session$ | async'></app-nav>
 
 <div class="container ng-sidebar__content">
 	<router-outlet></router-outlet>

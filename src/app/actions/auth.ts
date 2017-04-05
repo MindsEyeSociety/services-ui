@@ -18,7 +18,10 @@ export const ActionTypes = {
   LOGIN_FAIL: label('[AUTH] Login Fail'),
   LOGOUT: label('[AUTH] Logout'),
   LOGOUT_SUCCESS: label('[AUTH] Logout Success'),
-  LOGOUT_FAIL: label('[AUTH] Logout Fail')
+  LOGOUT_FAIL: label('[AUTH] Logout Fail'),
+  GET_USER: label('[AUTH] Get User'),
+  GET_USER_SUCCESS: label('[AUTH] Get User Success'),
+  GET_USER_FAIL: label('[AUTH] Get User Fail')
 }
 
 
@@ -55,6 +58,19 @@ export class LogoutFailAction implements Action {
   constructor(public payload: Object) { }
 }
 
+export class GetUserAction implements Action {
+  type = ActionTypes.GET_USER;
+  constructor(public payload: Object) { }
+}
+export class GetUserSuccessAction implements Action {
+  type = ActionTypes.GET_USER_SUCCESS;
+  constructor(public payload: Object) { }
+}
+export class GetUserFailAction implements Action {
+  type = ActionTypes.GET_USER_FAIL;
+  constructor(public payload: Object) { }
+}
+
 
 /**
  * We export a type alias of all actions in this action group
@@ -67,3 +83,6 @@ export class LogoutFailAction implements Action {
    | LogoutAction
    | LogoutSuccessAction
    | LogoutFailAction
+   | GetUserAction
+   | GetUserSuccessAction
+   | GetUserFailAction

@@ -17,6 +17,7 @@ import { Router, RouterStateSnapshot } from '@angular/router';
 import { environment } from '../../environments/environment';
 import * as fromRoot from '../reducers';
 import { AuthService } from '../core/auth.service';
+import { UserService } from '../core/user.service';
 import * as auth from '../actions/auth';
 
 
@@ -26,7 +27,8 @@ export class AuthEffects {
   constructor(
     private store: Store<fromRoot.State>,
     private actions$: Actions,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) { }
 
   @Effect()
@@ -37,6 +39,15 @@ export class AuthEffects {
         return this.authService.loginNew()
           .map( res => true === res.success ? new auth.LoginSuccessAction(res) : new auth.LoginFailAction(res) )
           .catch(error => of(new auth.LoginFailAction(error)))
+      });
+
+  @Effect()
+  loginSuccessAction$: Observable<Action> = this.actions$
+    .ofType(auth.ActionTypes.LOGIN_SUCCESS)
+      .switchMap(payload => {
+        return this.userService.getUser()
+          .map( res => true ? new auth.GetUserSuccessAction(res) : new auth.GetUserFailAction(res) )
+          .catch(error => of(new auth.GetUserFailAction(error)))
       });
 
   @Effect()
