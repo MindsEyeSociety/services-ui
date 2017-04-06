@@ -8,6 +8,8 @@ import { of } from 'rxjs/observable/of';
 
 import * as fromRoot from '../reducers';
 
+import { environment } from 'environments/environment';
+
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -30,6 +32,9 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate(): Observable<boolean> {
+    if( !this.hasUser() ){
+      window.location.href = environment.externalUrls.authLogin;
+    }
     return this.hasUser();
   }
 }
