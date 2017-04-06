@@ -9,14 +9,11 @@ import { of } from 'rxjs/observable/of';
 export class AuthService {
 
   public userToken: string;
-  public userTokenSubject: AsyncSubject<string> = new AsyncSubject();
   constructor(private _location: Location) {}
 
   public setToken(token: string): void {
     this.userToken = token;
     localStorage.setItem('user-token', token);
-    this.userTokenSubject.next(this.userToken);
-    this.userTokenSubject.complete();
   }
 
   // Redirects to login if user is not logged in.
@@ -31,20 +28,17 @@ export class AuthService {
   }
   loginNew(): Observable<any> {
     var params = this.decodeQueryString(this._location.path());
+
     if(params['token']){
-      //console.log('[SERVICE] Auth. Login: ', params['token']);
       this.setToken(params['token']);
       return of({ 'success': true, 'userToken': params['token'] });
     }
     else if(localStorage.getItem('user-token')){
       this.userToken = localStorage.getItem('user-token');
-      this.userTokenSubject.next(this.userToken);
-      this.userTokenSubject.complete();
-      return this.loginNew();
+      this.setToken(this.userToken);
+      return of({ 'success': true, 'userToken': this.userToken });
     }
     else{
-      this.userTokenSubject.next('');
-      this.userTokenSubject.complete();
       return of({ 'success': false });
     }
   }

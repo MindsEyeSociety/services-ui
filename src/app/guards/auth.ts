@@ -7,15 +7,17 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import * as fromRoot from '../reducers';
-
+import { UserService } from '../core/user.service';
 import { environment } from 'environments/environment';
+import * as auth from '../actions/auth';
 
 
 @Injectable()
 export class AuthGuard implements CanActivate {
 
   constructor(
-    private store: Store<fromRoot.State>
+    private store: Store<fromRoot.State>,
+    private userService: UserService
   ){}
 
   hasUserInStore(): Observable<boolean> {
@@ -24,17 +26,28 @@ export class AuthGuard implements CanActivate {
       .take(1);
   }
 
+  hasUserInApi(): Observable<boolean> {
+    return this.userService.getUser()
+      .map( res => res ? new auth.GetUserSuccessAction(res) : new auth.GetUserFailAction(res) )
+      .map(res => !!res)
+      .catch(() => {
+        window.location.href = environment.externalUrls.authLogin;
+        return of(false);
+      });
+  }
+
   hasUser(): Observable<boolean> {
     return this.hasUserInStore()
       .switchMap(inStore => {
-        return of(inStore);
+        if (inStore) {
+          return of(inStore);
+        }
+
+        return this.hasUserInApi();
       });
   }
 
   canActivate(): Observable<boolean> {
-    if( !this.hasUser() ){
-      window.location.href = environment.externalUrls.authLogin;
-    }
     return this.hasUser();
   }
 }
