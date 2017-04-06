@@ -32,6 +32,9 @@ import { appState } from '../hmr';
 // effects
 import { AuthEffects } from './effects/auth';
 
+// guards
+import * as guard from './guards';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +59,9 @@ import { AuthEffects } from './effects/auth';
     TimepickerModule.forRoot(),
     SidebarModule
   ],
-  providers: [ ],
+  providers: [
+    guard.AuthGuard
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Headers, Http, Response } from '@angular/http';
-import { Observable, AsyncSubject } from 'rxjs/Rx';
-import { CanActivate } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
@@ -13,61 +12,16 @@ import { AuthService } from 'app/core/auth.service';
 
 
 @Injectable()
-export class UserService implements CanActivate {
+export class UserService {
 
-  public currentUser: AsyncSubject<Object> = new AsyncSubject();
-
-  constructor(private http: Http, private authService: AuthService) {
-    /*var userTokenSub = this.authService.userTokenSubject.subscribe(
-      (userToken:string)=>{
-        console.log('user token subscription called',userToken);
-        if(!userToken || userToken.length == 0){
-          console.log('No user');
-          this.currentUser.next(false);
-          this.currentUser.complete();
-        }
-        else{
-          console.log('calling for me user');
-          this.getUser('me').subscribe(
-            (user:Object)=>{
-              this.currentUser.next(user);
-              this.currentUser.complete();
-            },
-            error =>  {
-              console.log("Error getting user, clear token");
-              this.authService.clearToken();
-              this.currentUser.next(false);
-              this.currentUser.complete();
-            }
-          )
-        }
-      }
-    );*/
-
-  }
-
-  canActivate() {
-    return this.currentUser.asObservable().map(
-      (user:any)=>
-      {
-        if(user) return true;
-        else {
-          this.authService.login();
-          return false;
-        }
-      }
-    );
-  }
+  constructor(private http: Http, private authService: AuthService) {}
 
   /**
    * Gets detailed information regarding a passed-in user, or (if none is provided), the currently logged-in user.
    *
    * @memberOf UserService
    */
-  public getUser(userId?: String) : Observable<Object> {
-
-    // If no user ID is presented, use the 'me' endpoint.
-    if (!userId) { userId = "me"; }
+  public getUser(userId: String = 'me') : Observable<Object> {
 
     // Create a URL to call from env data.
     const endpointUrl = `${environment.externalUrls.userApi}/user/${userId}`;

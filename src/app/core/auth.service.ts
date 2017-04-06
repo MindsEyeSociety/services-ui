@@ -10,24 +10,7 @@ export class AuthService {
 
   public userToken: string;
   public userTokenSubject: AsyncSubject<string> = new AsyncSubject();
-  constructor(private _location: Location) {
-    // Attempt to pull from storage upon instantiation.
-    /*var params = this.decodeQueryString(this._location.path());
-    console.log(params);
-    if(params['token']){
-      console.log('setting token in auth Constructor',params['token']);
-      this.setToken(params['token']);
-    }
-    else if(localStorage.getItem('user-token')){
-      this.userToken = localStorage.getItem('user-token');
-      this.userTokenSubject.next(this.userToken);
-      this.userTokenSubject.complete();
-    }
-    else{
-      this.userTokenSubject.next('');
-      this.userTokenSubject.complete();
-    }*/
-  }
+  constructor(private _location: Location) {}
 
   public setToken(token: string): void {
     this.userToken = token;
@@ -72,10 +55,6 @@ export class AuthService {
   }
 
   // Destroys local token, removes from storage, and redirects to porta logout.
-  /* public logout(): void {
-    this.clearToken();
-    window.location.href = environment.externalUrls.authLogout;
-  } */
   logout(): Observable<any> {
     this.clearToken();
     return of({ 'success': true });
