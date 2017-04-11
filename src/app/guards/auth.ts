@@ -7,8 +7,9 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import * as fromRoot from '../reducers';
+import { AuthService } from '../core/auth.service';
 import { UserService } from '../core/user.service';
-import { environment } from 'environments/environment';
+import { environment } from '../../environments/environment';
 import * as auth from '../actions/auth';
 
 
@@ -17,6 +18,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(
     private store: Store<fromRoot.State>,
+    private authService: AuthService,
     private userService: UserService
   ){}
 
@@ -27,6 +29,11 @@ export class AuthGuard implements CanActivate {
   }
 
   hasUserInApi(): Observable<boolean> {
+    if(!this.authService.userToken){
+      window.location.href = environment.externalUrls.authLogin;
+      return of(false);
+    }
+
     return this.userService.getUser()
       .map( res => res ? new auth.GetUserSuccessAction(res) : new auth.GetUserFailAction(res) )
       .map(res => !!res)

@@ -7,8 +7,8 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
-import { environment } from 'environments/environment';
-import { AuthService } from 'app/core/auth.service';
+import { environment } from '../../environments/environment';
+import { AuthService } from '../core/auth.service';
 
 
 @Injectable()
