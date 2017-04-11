@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col" *ngIf="session$ | async; let session; else loading">
+    <div class="col" *ngIf="session$ | async; let session;">
         <p class="alert alert-success">
             You have been successfully logged in!
         </p>

@@ -36,7 +36,7 @@ export class NavComponent implements OnInit {
 
   public user: Object;
   public showNav: Boolean = false;
-  private submenuItems:SubmenuItem[];
+  public submenuItems:SubmenuItem[];
   constructor(
     private store: Store<fromRoot.State>,
     private authService: AuthService,

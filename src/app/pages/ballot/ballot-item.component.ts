@@ -8,12 +8,12 @@ import {BallotService} from './ballot.service';
     templateUrl: './ballot-item.component.html',
 })
 export class BallotItemComponent implements OnInit {
-    private timezones:any = [{value: 1, name: 'Eastern'},{value: 2, name:'Central'},{value: 3, name:'Mountain'},{value: 4, name:'West'},{value:5, name:'Alaska'},{value:6, name:'Hawaii'}];
+    public timezones:any = [{value: 1, name: 'Eastern'},{value: 2, name:'Central'},{value: 3, name:'Mountain'},{value: 4, name:'West'},{value:5, name:'Alaska'},{value:6, name:'Hawaii'}];
     private ballotSubscription: Subscription;
     private ballotIdSubscription: Subscription;
-    private ballot: any;
-    private ballotChanges: any;
-    private ballotEdit:boolean = false;
+    public ballot: any;
+    public ballotChanges: any;
+    public ballotEdit:boolean = false;
     constructor(private route: ActivatedRoute, private router: Router, private ballotService: BallotService, private ballotItemService: BallotItemService) { }
 
     ngOnInit() {
