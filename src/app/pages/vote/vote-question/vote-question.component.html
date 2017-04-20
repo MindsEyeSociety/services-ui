@@ -1,0 +1,38 @@
+<span *ngIf="question.id">
+    <h4 class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                {{question.name}}
+            </div>
+        </div>
+    </h4>
+    <div class="card-block">
+        <div class="row">
+            <span class="col-md-3 font-weight-bold">Type</span>
+            <span class="col-md-9 text-capitalize">{{question.type}}</span>
+        </div>
+        <span *ngIf="question.description">
+            <div class="row">
+                <span class="col-md-3 font-weight-bold">Question description</span>
+                <span class="col-md-9">{{question.description}}</span>
+            </div>
+        </span>
+        <div class="row" *ngIf="question.readmore">
+            <span class="col-md-3 font-weight-bold"><a [href]="question.readmore">Read More</a></span> 
+        </div>
+        <div class="row" *ngIf="question.discussion">
+            <span class="col-md-3 font-weight-bold"><a [href]="question.discussion">Discussion link</a></span>
+        </div>
+        <div *ngIf="question.type=='office'" class="row">
+            <span class="col-md-3 font-weight-bold">Positions open</span>
+            <span class="col-md-9">{{question.count}}</span>
+        </div>
+    </div>
+</span>
+
+
+<div *ngIf="question.id && question.type=='office'" class="list-group list-group-flush">
+    <div *ngFor="let candidate of question.candidates" class="card mb-4">
+        <app-vote-candidate [voteId]="voteId" [questionId] = "questionId" [question]="question" [candidate]="candidate"></app-vote-candidate>
+    </div>
+</div>

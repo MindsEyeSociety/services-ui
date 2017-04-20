@@ -1,0 +1,10 @@
+<span *ngIf="candidate">
+    <div class="card mb-4">
+        <div class="card-block">
+            <h4 class="card-title">{{candidate.firstName}} {{candidate.lastName}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">({{candidate.membershipNumber}})</h6>
+            <span *ngIf="candidate.application"><a [href]="candidate.application" target="_blank" class="btn btn-primary">View application</a> <button (click)="startEdit()" class="btn btn-secondary">Edit</button></span>
+        </div>
+    </div>
+</span>
+
