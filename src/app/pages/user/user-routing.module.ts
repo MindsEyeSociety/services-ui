@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user.component';
 import { ProfileComponent } from './profile.component';
 import { OfficersComponent } from './officers.component';
-import { LocationComponent } from './location.component';
+import { LocationListComponent } from './location/location-list.component';
+import { LocationComponent } from './location/location.component';
 import { MembersComponent } from './members.component';
 
 const routes: Routes =  [
@@ -17,8 +18,12 @@ const routes: Routes =  [
       },
       {
         path: 'locations',
-        component: LocationComponent
+        component: LocationListComponent
       }, 
+      {
+        path: 'locations/:id',
+        component: LocationComponent
+      },
       {
         path: 'officers',
         component: OfficersComponent

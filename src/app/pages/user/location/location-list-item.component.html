@@ -1,0 +1,6 @@
+<div><a *ngIf="!fetchedOrgUnit || (fetchedOrgUnit.children && fetchedOrgUnit.children.length)" (click)="toggle()"><span *ngIf="expanded">[ - ]</span><span *ngIf="!expanded">[+]</span></a>
+<a [routerLink]="orgUnit.id">({{orgUnit.code}}) {{orgUnit.name}}</a>
+<ul *ngIf="expanded && children">
+    <li *ngFor="let child of children"><app-location-list-item [orgUnit]="child"></app-location-list-item></li>
+</ul>
+</div>

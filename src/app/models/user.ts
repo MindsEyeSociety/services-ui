@@ -1,3 +1,4 @@
+import {OrgUnit} from './org-unit';
 export interface User {
   address: string;
   email: string;
@@ -9,6 +10,7 @@ export interface User {
   membershipNumber: string;
   membershipType: string;
   nickname: string;
+  orgUnit: OrgUnit;
 }
 
 export function makeUserModel(data = null): User {
@@ -22,7 +24,8 @@ export function makeUserModel(data = null): User {
     membershipExpiration: null,
     membershipNumber: null,
     membershipType: null,
-    nickname: null
+    nickname: null,
+    orgUnit: null
   };
   if(data) {
     user = {
@@ -35,7 +38,8 @@ export function makeUserModel(data = null): User {
       membershipExpiration: data.membershipExpiration,
       membershipNumber: data.membershipNumber,
       membershipType: data.membershipType,
-      nickname: data.nickname
+      nickname: data.nickname,
+      orgUnit: data.orgUnit
     };
   }
   return user;
